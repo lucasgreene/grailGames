@@ -1,0 +1,5 @@
+package grailgames;
+
+class Game {
+
+}
