@@ -17,5 +17,6 @@ class PeasantConcorde extends Brave implements DuelerMoves{
 	public void damage(int HP) {
 		
 	}
+	//test
 	
 }
