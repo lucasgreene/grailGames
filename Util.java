@@ -5,41 +5,41 @@ public class Util {
 	
 	public static Card parse(String cardName) throws Exception{
 		Card card = null;
-		
-		if (cardName == "Page Robin"){
+
+		if (cardName.equals("Page Robin")) {
 			card = new PageRobin();
-		} else if (cardName == "Peasant Merek") {
+		} else if (cardName.equals("Peasant Merek")) {
 			card = new PeasantMerek();
-		} else if (cardName == "Page Lancelot") {
+		} else if (cardName.equals("Page Lancelot")) {
 			card = new PageLancelot();
-		} else if (cardName == "Peasant Concorde") {
+		} else if (cardName.equals("Peasant Concorde")) {
 			card = new PeasantConcorde();
-		} else if (cardName == "Page Galahad") {
+		} else if (cardName.equals("Page Galahad")) {
 			card = new PageGalahad();
-		} else  if (cardName == "Peasant Rowan") {
+		} else  if (cardName.equals("Peasant Rowan")) {
 			card = new PeasantRowan();
-		} else if (cardName == "Anthrax Asylum") {
+		} else if (cardName.equals("Anthrax Asylum")) {
 			card = new AnthraxAsylum();
-		} else if (cardName == "Cowardly Health") {
-			card = new HolyHealthPotion("Cowardly");
-		} else if (cardName == "Pure Health") {
-			card = new HolyHealthPotion("Pure");
-		} else if (cardName == "Brave Health") {
-			card = new HolyHealthPotion("Brave");
-		} else if (cardName == "Jousting Practice") {
+		} else if (cardName.equals("Cowardly Health")) {
+			card = new HolyHealthPotion("Cowardly Health");
+		} else if (cardName.equals("Pure Health")) {
+			card = new HolyHealthPotion("Pure Health");
+		} else if (cardName.equals("Brave Health")) {
+			card = new HolyHealthPotion("Brave Health");
+		} else if (cardName.equals("Jousting Practice")) {
 			card = new JoustingPractice();
-		} else if (cardName == "Camelot ReinForcements") {
+		} else if (cardName.equals("Camelot Reinforcements")) {
 			card = new CamelotReinforcements();
-		} else if (cardName == "Status Advance")  {
+		} else if (cardName.equals("Status Advance"))  {
 			card = new StatusAdvance();
-		} else if (cardName == "Boy Arthur") {
+		} else if (cardName.equals("Boy Arthur")) {
 			card = new BoyArthur();
-		} else if (cardName == "Peasant Patsy") {
+		} else if (cardName.equals("Peasant Patsy")) {
 			card = new PeasantPatsy();
-		} else if (cardName == "Bridge of Death") {
+		} else if (cardName.equals("Bridge of Death")) {
 			card = new BridgeDeath();
-		} else if (cardName == "Royal Health") {
-			card = new HolyHealthPotion("Royal");
+		} else if (cardName.equals("Royal Health")) {
+			card = new HolyHealthPotion("Royal Health");
 		} else {
 			throw new Exception("Error in card deck!");
 		}

@@ -27,7 +27,15 @@ public class Player {
 				System.out.println(e.getMessage());
 			}
 		}
-	}		
+	}
+	
+	public void printHand() {
+		int i = 1;
+		for (Card temp : this.hand) {
+			System.out.println(Integer.toString(i) + " -> " + temp.name);
+			i++;
+		}
+	}
 		
 	
 }

@@ -13,10 +13,13 @@ public class Game {
 	}
 	
 	public void startGame() {
-		this.p1.draw();
-		this.p2.draw();
-		
-		
+		for (int i=0; i<6; i++) {
+			this.p1.draw();
+			this.p2.draw();
+
+		}
+		p1.printHand();
+		p2.printHand();
 	}
 	
  
