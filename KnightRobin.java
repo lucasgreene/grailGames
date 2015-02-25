@@ -1,9 +1,9 @@
 package grailgames;
 
-class CcConcorde extends Brave implements DuelerMoves{
+class KnightRobin extends Cowerdly implements DuelerMoves{
 	
-	CcConcorde(int currentHP) {
-		super("CC Concorde",70,currentHP,0,"Concorde's Conquer");
+	KnightRobin(int currentHP) {
+		super("Knight Robin",120,currentHP,0,"Camouflage");
 	}
 	
 	public void attack(Dueler d) { 
@@ -19,4 +19,3 @@ class CcConcorde extends Brave implements DuelerMoves{
 	}
 	
 }
-
