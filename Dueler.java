@@ -21,5 +21,35 @@ class Dueler extends Card {
 	public String toString() {
 		return "Do something";
 	}
+	
+	public String attackedByCowardly(Dueler d) { 
+		int damage = d.AP;
+		this.currentHP = this.currentHP - damage; 
+
+		return this.name + " took " + damage + " damage.";
+	}
+	
+	public String attackedByBrave(Dueler d) { 
+		int damage = d.AP;
+		this.currentHP = this.currentHP - damage; 
+
+		return this.name + " took " + damage + " damage.";
+		
+	}
+	
+	public String attackedByPure(Dueler d) { 
+		int damage = d.AP;
+		this.currentHP = this.currentHP - damage; 
+
+		return this.name + " took " + damage + " damage.";
+	}
+	
+	public String attackedByRoyal(Dueler d) { 
+		int damage = d.AP;
+		this.currentHP = this.currentHP - damage; 
+
+		return this.name + " took " + damage + " damage.";
+		
+	}
 
 }

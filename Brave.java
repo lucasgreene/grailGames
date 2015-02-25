@@ -6,13 +6,29 @@ abstract class Brave extends Dueler {
 		super(name,maxHP,currentHP,XP,attackName, AP);
 	}
 	
-	public void attack(Dueler d) { 
-		// do something
+	
+	@Override
+	public String attackedByRoyal(Dueler d) { 
+		int damage = 0;
+		if (d.AP >= 20) {
+			damage = d.AP -20;
+			this.currentHP = this.currentHP - damage; 
+		} 
+		return this.name + " took " + damage + " damage.";
 	}
 	
-	public void damage(int HP) {
-		
+	@Override
+	public String attackedByCowardly(Dueler d) { 
+		int damage = d.AP + 20;
+		this.currentHP = this.currentHP - damage; 
+
+		return this.name + " took " + damage + " damage.";
 	}
+	
+
+	
+	
+
 
 }
 
