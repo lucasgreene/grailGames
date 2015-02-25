@@ -3,19 +3,12 @@ package grailgames;
 class CcRowan extends Pure implements DuelerMoves{
 	
 	CcRowan(int currentHP) {
-		super("CC Rowan",100,currentHP,0,"Rowan's Rampage");
+		super("CC Rowan",100,currentHP,0,"Rowan's Rampage", 40);
 	}
 	
-	public void attack(Dueler d) { 
-		// do something
-	}
 	
 	public void evolve() {
 		// do nothing cannot evolve
-	}
-	
-	public void damage(int HP) {
-		
 	}
 	
 }

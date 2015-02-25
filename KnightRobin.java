@@ -3,7 +3,7 @@ package grailgames;
 class KnightRobin extends Cowerdly implements DuelerMoves{
 	
 	KnightRobin(int currentHP) {
-		super("Knight Robin",120,currentHP,0,"Camouflage");
+		super("Knight Robin",120,currentHP,0,"Camouflage", 60);
 	}
 	
 	public void attack(Dueler d) { 
