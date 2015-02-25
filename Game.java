@@ -1,25 +1,41 @@
 package grailgames;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class Game {
 	
 	Player p1;
 	Player p2;
+	private int turn = 1;
+	private boolean gameOver = false;
 	public Game(Player player1, Player player2) {
 		this.p1 = player1;
 		this.p2 = player2;
 		
 	}
 	
-	public void startGame() {
+	public void startGame() throws IOException {
 		for (int i=0; i<6; i++) {
 			this.p1.draw();
 			this.p2.draw();
 
 		}
-		p1.printHand();
-		p2.printHand();
+
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
+		while (gameOver == false) {
+			p1.turnMessage();
+			String s = input.readLine();
+			System.out.println(s);
+			gameOver = true;
+		}
+		
+		input.close();
+		output.flush();
 	}
 	
  
@@ -39,9 +55,8 @@ public class Game {
 	    	System.out.println(p1.deck);
 	    } catch (IOException e) {
 	    	System.out.println(e.getMessage());
-	    } finally {
+	    } 
 
-	    }
 	    */
 		
 		try {

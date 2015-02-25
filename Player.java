@@ -23,6 +23,7 @@ public class Player {
 				Card card = Util.parse(deck[deckIndex]);
 				hand.addFirst(card);
 				deckIndex ++;
+				System.out.println(name + " drew a card!");
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -35,6 +36,10 @@ public class Player {
 			System.out.println(Integer.toString(i) + " -> " + temp.name);
 			i++;
 		}
+	}
+	
+	public void turnMessage() {
+		System.out.println(name + "'s turn");
 	}
 		
 	
