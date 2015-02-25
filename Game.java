@@ -7,12 +7,15 @@ public class Game {
 	Player p1;
 	Player p2;
 	public Game(Player player1, Player player2) {
-		this.p1 = p1;
-		this.p2 = p2;
+		this.p1 = player1;
+		this.p2 = player2;
 		
 	}
 	
 	public void startGame() {
+		this.p1.draw();
+		this.p2.draw();
+		
 		
 	}
 	
