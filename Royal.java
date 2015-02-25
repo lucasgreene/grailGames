@@ -1,9 +1,9 @@
 package grailgames;
 
-class Royal extends Dueler {
+abstract class Royal extends Dueler {
 	
-	Royal(String name, int maxHP, int currentHP, int XP, int turn) {
-		super(name,maxHP,currentHP,XP,turn);
+	Royal(String name, int maxHP, int currentHP, int XP, String attackName) {
+		super(name,maxHP,currentHP,XP, attackName);
 	}
 
 }

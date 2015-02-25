@@ -1,10 +1,10 @@
 package grailgames;
 
 
-class Cowerdly extends Dueler {
+abstract class Cowerdly extends Dueler {
 	
-	Cowerdly(String name, int maxHP, int currentHP, int XP, int turn) {
-		super(name,maxHP,currentHP,XP,turn);
+	Cowerdly(String name, int maxHP, int currentHP, int XP, String attackName) {
+		super(name,maxHP,currentHP,XP,attackName);
 	}
 
 }
