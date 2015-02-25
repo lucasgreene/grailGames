@@ -1,6 +1,6 @@
 package grailgames;
 
-abstract class Brave extends Dueler implements Attacker {
+abstract class Brave extends Dueler {
 	
 	Brave(String name, int maxHP, int currentHP, int XP, String attackName, int AP) {
 		super(name,maxHP,currentHP,XP,attackName, AP);

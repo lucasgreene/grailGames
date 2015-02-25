@@ -1,6 +1,6 @@
 package grailgames;
 
-class PeasantMerek extends Cowerdly implements DuelerMoves{
+class PeasantMerek extends Cowardly implements DuelerMoves{
 	
 	PeasantMerek() {
 		super("Peasant Merek",100,100,0,"Ballad Bash",0);

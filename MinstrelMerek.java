@@ -1,6 +1,6 @@
 package grailgames;
 
-class MinstrelMerek extends Cowerdly implements DuelerMoves{
+class MinstrelMerek extends Cowardly implements DuelerMoves{
 	
 	MinstrelMerek(int currentHP) {
 		super("Minstrel Merek",150,currentHP,0,"Lute Laceration", 50);

@@ -1,6 +1,6 @@
 package grailgames;
 
-class KnightRobin extends Cowerdly implements DuelerMoves{
+class KnightRobin extends Cowardly implements DuelerMoves{
 	
 	KnightRobin(int currentHP) {
 		super("Knight Robin",120,currentHP,0,"Camouflage", 60);

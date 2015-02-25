@@ -1,9 +1,9 @@
 package grailgames;
 
 
-abstract class Cowerdly extends Dueler implements Attacker {
+abstract class Cowardly extends Dueler {
 	
-	Cowerdly(String name, int maxHP, int currentHP, int XP, String attackName, int AP) {
+	Cowardly(String name, int maxHP, int currentHP, int XP, String attackName, int AP) {
 		super(name,maxHP,currentHP,XP,attackName, AP);
 	}
 	

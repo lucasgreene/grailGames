@@ -1,6 +1,6 @@
 package grailgames;
 
-class PageRobin extends Cowerdly implements DuelerMoves{
+class PageRobin extends Cowardly implements DuelerMoves{
 	
 	PageRobin() {
 		super("Page Robin",60,60,0,"Squeal",20);
