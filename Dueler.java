@@ -1,6 +1,6 @@
 package grailgames;
 
-class Dueler extends Card {
+abstract class Dueler extends Card {
 	int maxHP;
 	int currentHP;
 	int XP;
@@ -51,5 +51,6 @@ class Dueler extends Card {
 		return this.name + " took " + damage + " damage.";
 		
 	}
+
 
 }

@@ -25,6 +25,12 @@ abstract class Brave extends Dueler {
 		return this.name + " took " + damage + " damage.";
 	}
 	
+	public String attack(Dueler d) { 
+		d.attackedByBrave(this);
+		return this.name + " used " + attackName + "!"; 
+		
+	}
+	
 
 	
 	

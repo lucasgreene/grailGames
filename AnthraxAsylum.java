@@ -4,8 +4,11 @@ class AnthraxAsylum extends Training {
 	AnthraxAsylum() {
 		super("Anthrax Asylum");
 	}
-	void effect(Dueler d) {
-		//do something
+	String effect(Dueler d) {
+		int gain = d.maxHP - d.currentHP;
+		d.currentHP = d.maxHP;
+		return d.name + " regains " + gain + " HP!";
+		
 	}
 	
 

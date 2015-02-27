@@ -1,6 +1,6 @@
 package grailgames;
 
-class Pure extends Dueler{
+abstract class Pure extends Dueler{
 	
 	Pure(String name, int maxHP, int currentHP, int XP, String attackName, int AP) {
 		super(name,maxHP,currentHP,XP, attackName, AP);
@@ -22,6 +22,12 @@ class Pure extends Dueler{
 		this.currentHP = this.currentHP - damage; 
 
 		return this.name + " took " + damage + " damage.";
+	}
+	
+	public String attack(Dueler d) { 
+		d.attackedByPure(this);
+		return this.name + " used " + attackName + "!"; 
+		
 	}
 
 }

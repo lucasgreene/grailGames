@@ -24,5 +24,26 @@ abstract class Cowardly extends Dueler {
 
 		return this.name + " took " + damage + " damage.";
 	}
+	
+	
+	public String attack(Dueler d) { 
+		d.attackedByCowardly(this);
+		return this.name + " used " + attackName + "!"; 
+		
+	}
+	
+	public String usePotion(Training t) {
+		int heal = 0; 
+		if (t.name.equals("Cowardly Heal")) {
+			heal = 30;
+		} else {
+			heal = 10;
+		}
+		if ((this.currentHP + heal) > this.maxHP) { 
+			heal = this.maxHP - this.currentHP;
+		}
+		this.currentHP = this.currentHP + heal;
+		return this.name + " gained " + heal + " HP!" ;
+	}
 
 }

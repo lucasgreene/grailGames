@@ -6,13 +6,28 @@ abstract class Royal extends Dueler{
 		super(name,maxHP,currentHP,XP, attackName, AP);
 	}
 	
-	public void attack(Dueler d) { 
-		// do something
+	@Override
+	public String attackedByPure(Dueler d) { 
+		int damage = 0;
+		if (d.AP >= 20) {
+			damage = d.AP -20;
+			this.currentHP = this.currentHP - damage; 
+		} 
+		return this.name + " took " + damage + " damage.";
 	}
 	
-	public void damage(int HP) {
+	@Override
+	public String attackedByBrave(Dueler d) { 
+		int damage = d.AP + 20;
+		this.currentHP = this.currentHP - damage; 
+
+		return this.name + " took " + damage + " damage.";
+	}
+	
+	public String attack(Dueler d) { 
+		d.attackedByRoyal(this);
+		return this.name + " used " + attackName + "!"; 
 		
 	}
-
 }
 
