@@ -4,6 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Game object
+ * Takes as input two player objects
+ * @author LUke
+ *
+ */
 public class Game {
 	
 	Player p1;
@@ -14,6 +20,11 @@ public class Game {
 	private boolean gameOver = false;
 	BufferedReader iStream;
 	
+	/**
+	 * Constructs the game class
+	 * @param player1 - a Player
+	 * @param player2 - a Player
+	 */
 	public Game(Player player1, Player player2) {
 		this.p1 = player1;
 		this.p2 = player2;
@@ -25,6 +36,9 @@ public class Game {
 		
 	}
 	
+	/**
+	 * Changes the state of the game to the next turn
+	 */
 	private void nextTurn() {
 		this.turn *= -1;
 		Dueler[] temp = homeField;
@@ -32,16 +46,30 @@ public class Game {
 		awayField = temp;
 	}
 	
+	/** 
+	 * Returns the Dueler in position i on the home field
+	 * @param i
+	 * @return
+	 */
 	public Dueler getFromHome(int i) {
 		Dueler toReturn = homeField[i];
 		return toReturn;
 	}
 	
+	/** 
+	 * Returns the Dueler in position i on the away field
+	 * @param i
+	 * @return
+	 */
 	public Dueler getFromAway(int i) {
 		Dueler toReturn = awayField[i];
 		return toReturn;
 	}
 	
+	/** 
+	 * Prints the names and positions of a field
+	 * @param field
+	 */
 	public void printFieldHelp(Dueler[] field) {
 		String arenaPlayer;
 		if (field[0] == null) {
@@ -61,6 +89,11 @@ public class Game {
 			System.out.println(out);
 		}
 	}
+	
+	/**
+	 * Prints both fields
+	 * Called when user inputs: print field
+	 */
 	public void printField() {
 		String myName; 
 		String enemyName;
@@ -79,6 +112,12 @@ public class Game {
 		
 	}
 	
+	/**
+	 * Calls the attack method of the card in home team's arena
+	 * If no Dueler in Home arena, prints message and passes
+	 * If no Dueler in Away arena, and there is a Dueler in home,
+	 * Changes gameOver to true to end the game
+	 */ 
 	public void attack() {
 		if ((homeField[0] != null) && (homeField[0].XP > 0)) {
 			if (awayField[0] != null) {
@@ -94,12 +133,22 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * Calls the card in home positions pass method, if card in 
+	 * arena. All pass methods do nothing, except for Knight Galahad
+	 */
 	public void pass() {
 		if (homeField[0] != null) {
 			homeField[0].pass();
 		}
 	}
 	
+	/**
+	 * Switches the Dueler (or null) of position i with the 
+	 * Dueler (or null) at position 0
+	 * Called when user inputs: switch #
+	 * @param i
+	 */
 	public void homeSwitch(int i) {
 		Dueler tmp = homeField[0];
 		homeField[0] = homeField[i];
@@ -117,6 +166,11 @@ public class Game {
 		
 	}
 	
+	/**
+	 * places the input Dueler card in the first available
+	 * spot on homeField
+	 * @param dueler
+	 */
 	public void place(Dueler dueler) {
 		for (int i = 0; i < homeField.length; i++) {
 			if (homeField[i] == null) {
@@ -128,12 +182,23 @@ public class Game {
 			
 	}
 	
+	/**
+	 * Replaces the Dueler at position i with the input Dueler
+	 * Called when a Dueler advances status
+	 * @param dueler
+	 * @param i
+	 */
 	public void replace(Dueler dueler, int i) {
 		homeField[i] = dueler;
 		dueler.position = i;
 		
 	}
 	
+	/**
+	 * Galahad special power - increases all home bench HP
+	 * Called every time Galahad attacks or passes, to signify
+	 * the end of a turn in which Galahad is in the arena
+	 */
 	public void galahadSpecial() {
 		for (int i = 1; i < homeField.length; i++) {
 			if (homeField[i] != null) {
@@ -142,7 +207,12 @@ public class Game {
 		}
 	}
 	
-	
+	/**
+	 * Switches Dueler in position i with Dueler in position 
+	 * 0 on awayField, if Dueler in position i not null
+	 * Called by Bridge of Death
+	 * @param i
+	 */
 	public void awaySwitch(int i) {
 		if (awayField[i] != null) {
 			Dueler tmp = awayField[i];
@@ -159,6 +229,10 @@ public class Game {
 		
 	}
 	
+	/**
+	 * Increments the XP of all duelers on homeField
+	 * Called after every turn
+	 */
 	private void incrementXP() {
 		for (Dueler d : homeField) {
 			if (d != null) {
@@ -167,11 +241,21 @@ public class Game {
 		}	
 	}
 	
+	/** 
+	 * banishes (removes) the player in the awayField arena
+	 */
 	public void banish() {
 		awayField[0] = null;
 		System.out.println("Someone was banished");
 	}
 	
+	/** 
+	 * Starts the game by drawing 6 cards for each player,
+	 * and then continues to cycle between p1 turn and p2 turn
+	 * until gameOver = true
+	 * @throws IOException
+	 * @throws Exception
+	 */
 	public void startGame() throws IOException, Exception {
 		for (int i=0; i<6; i++) {
 			this.p1.draw();
