@@ -11,14 +11,21 @@ public class Game {
 	Player p1;
 	Player p2;
 	private int turn = 1;
+	private Card[] field1 = new Card[]{null,null,null,null,null,null,null};
+	private Card[] field2 = new Card[]{null,null,null,null,null,null,null};
 	private boolean gameOver = false;
+	
 	public Game(Player player1, Player player2) {
 		this.p1 = player1;
 		this.p2 = player2;
 		
 	}
 	
-	public void startGame() throws IOException {
+	private void nextTurn() {
+		this.turn *= -1;
+	}
+	
+	public void startGame() throws IOException, Exception {
 		for (int i=0; i<6; i++) {
 			this.p1.draw();
 			this.p2.draw();
@@ -26,16 +33,22 @@ public class Game {
 		}
 
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
-		while (gameOver == false) {
-			p1.turnMessage();
-			String s = input.readLine();
-			System.out.println(s);
+
+		while (true) {
+			if (gameOver) {
+				break;
+			}
+			p1.turn(input);
+			if (gameOver) {
+				break;
+			}
+			p2.turn(input);
 			gameOver = true;
 		}
 		
-		input.close();
-		output.flush();
+		System.out.println("Games over!");
+		
+
 	}
 	
  
@@ -70,9 +83,9 @@ public class Game {
 			game.startGame();
 
 	    } catch (IOException e) {
-	    	System.out.println(e.getMessage()+ "\nInvalid Deck Name");
-
-		
+	    	System.out.println(e.getMessage());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 	}
 }

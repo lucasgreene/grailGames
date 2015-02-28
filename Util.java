@@ -1,6 +1,9 @@
 package grailgames;
 
-public class Util {
+import java.io.BufferedReader;
+import java.io.IOException;
+
+class Util {
 	
 	
 	public static Card parse(String cardName) throws Exception{
@@ -44,8 +47,67 @@ public class Util {
 			throw new Exception("Error in card deck!");
 		}
 
-		return card;
+		return card;			
+	}
+
+	
+	public static boolean parseInput(Player p, BufferedReader iStream) throws IOException {
+		String s = iStream.readLine();
+		String[] toks = s.split(" ");
+		String errorMessage = "Please input one of: print hand; print field;" +
+									" switch #; play #; attack; pass;" ;
+		
+		if (toks.length == 1) {
+			if (toks[0].equals("attack")) {
+				p.attack();
+				return true;
+			} else if (toks[0].equals("pass")) {
+				p.pass();
+				return true;
+			} else {
+				System.out.println(errorMessage);
+				return false;
+			}
 			
+		} else if (toks.length == 2) {
+			if (toks[0].equals("print") && toks[1].equals("hand")) {
+				p.printHand();
+				return true;
+			} else if (toks[0].equals("print") && toks[1].equals("field")) {
+				p.printField();
+				return false;
+			} else if (toks[0].equals("switch")) {
+				try {
+					int pos = Integer.parseInt(toks[1]);
+					p.switchDuelers(pos);
+					return true;
+				} catch (NumberFormatException e) {
+					System.out.println(errorMessage);
+					return false;
+				}
+			} else if (toks[0].equals("play")) {
+				try {
+					int pos = Integer.parseInt(toks[1]);
+					if (pos > p.hand.size()) {
+						System.out.println(errorMessage);
+						
+					} else {
+						p.play(pos);
+					}	
+					return false;
+				} catch (NumberFormatException e) {
+					System.out.println(errorMessage);
+					return false;
+				}
+			} else {
+				System.out.println(errorMessage);
+				return false;
+			}
+			
+		} else {
+			System.out.println(errorMessage);
+			return false;
+		}
 	}
 
 }

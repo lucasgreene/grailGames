@@ -1,5 +1,6 @@
 package grailgames;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
@@ -25,9 +26,19 @@ public class Player {
 				deckIndex ++;
 				System.out.println(name + " drew a card!");
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				System.out.println("Error in card deck");
 			}
 		}
+	}
+	
+	public void turn(BufferedReader iStream) throws IOException {
+		System.out.println(name + "'s turn");
+		draw();
+		boolean turnOver = false;
+		while (!turnOver) {
+			turnOver = Util.parseInput( this, iStream);
+		}
+				
 	}
 	
 	public void printHand() {
@@ -38,9 +49,26 @@ public class Player {
 		}
 	}
 	
-	public void turnMessage() {
-		System.out.println(name + "'s turn");
-	}
+
 		
+	public void attack() {
+		
+	}
 	
+	public void pass() {
+		
+	}
+	
+	public void printField() {
+		
+		
+	}
+	
+	public void play(int pos) {
+		
+	}
+	
+	public void switchDuelers(int pos) {
+	
+	}
 }
