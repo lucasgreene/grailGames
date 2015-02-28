@@ -14,7 +14,7 @@ class StatusAdvance extends Training {
 		
 	@Override
 	void play() {
-		System.out.println(effect(getFromHome(util.PlayInput(p.iStream)));
+		System.out.println(effect(getFromHome(util.playInput(p.iStream)));
 			
 	}
 		

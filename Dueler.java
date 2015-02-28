@@ -8,6 +8,7 @@ abstract class Dueler extends Card {
 	String attackName;
 	int AP;
 	int arena; 
+	int position;
 	
 	/**
 	 * Constructs a new dueler 
