@@ -11,8 +11,8 @@ class PureHeal extends HolyHealthPotion{
 	}
 	
 	@Override
-	void play (Game g, Player p, BufferedReader iStream) { 
-		System.out.println(g.getFromHome())
+	public void play() { 
+		System.out.println(effect((getFromHome(Util.playInput(p.iStream)))));
 	}
 	
 

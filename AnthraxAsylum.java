@@ -11,5 +11,10 @@ class AnthraxAsylum extends Training {
 		
 	}
 	
+	@Override 
+	public void play() { 
+		System.out.println(effect((getFromHome(Util.playInput(p.iStream)))));
+	}
+	
 
 }

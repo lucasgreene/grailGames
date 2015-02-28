@@ -191,6 +191,19 @@ abstract class Dueler extends Card {
 	public void Pass() { 
 		
 	}
+	
+	public void play() { 
+		this.p.game.place(this);
+		if (this.position == 0) {
+			System.out.println(this.name + " has been placed in the arena!");
+		} 
+		
+		System.out.println(this.name + " has been placed on the bench!");
+		
+		
+	}
+	
+	
 
 
 }
