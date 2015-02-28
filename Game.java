@@ -265,12 +265,10 @@ public class Game {
 
 
 		while (true) {
-			System.out.println("here");
 			p1.turn();
 			if (gameOver) {
 				break;
 			}
-			System.out.println("asd");
 			incrementXP();
 			nextTurn();
 			p2.turn();
@@ -279,8 +277,8 @@ public class Game {
 			}
 			incrementXP();
 			nextTurn();
-			//gameOver = true;
 		}
+		
 		iStream.close();
 		System.out.println("Games over!");
 		

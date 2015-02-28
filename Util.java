@@ -3,8 +3,21 @@ package grailgames;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+/**
+ * Util class contains string parsers used by Player class and Trainer class
+ * @author LUke
+ *
+ */
 class Util {
 	
+	/**
+	 * Parses the given card name and returns the associated card, 
+	 * with the given player as input
+	 * @param p - the player whose turn it is
+	 * @param cardName -  the String of the card name to be parsed
+	 * @return
+	 * @throws Exception
+	 */
 	public static Card parse(Player p, String cardName) throws Exception{
 		Card card = null;
 
@@ -50,7 +63,12 @@ class Util {
 	}
 	
 	
-	
+	/**
+	 * Parses and manages all commands that can be called on the start of a turn
+	 * @param p - the player whose turn it is
+	 * @param iStream - the BufferedReader associated with the Game
+	 * @throws IOException
+	 */
 	public static void turnInput(Player p, BufferedReader iStream) throws IOException {
 		
 		String errorMessage = "Please input one of: print hand;" +
@@ -90,7 +108,7 @@ class Util {
 							System.out.println(errorMessage);
 							
 						} else {
-							p.play(pos, iStream);
+							p.play(pos);
 						}	
 					} catch (NumberFormatException e) {
 						System.out.println(errorMessage);
@@ -106,11 +124,18 @@ class Util {
 
 	}
 	
+	/**
+	 * Manages and parses all input associated with trainer's Play method
+	 * Returns an int that specifies the index of home or away's field 
+	 * @param iStream - BufferedReader associated with the Game
+	 * @return
+	 * @throws IOException
+	 */
 	public static int playInput(BufferedReader iStream) throws IOException {
 		String playMessage = "Select a Dueler:\n" + 
-							"0 for the battling Duelers, 1-6 for the bench";
+							"0 for the battling Duelers, 1-6 for the bench ";
 		String errorMessage = "Invalid input";
-		System.out.print(playMessage);
+		System.out.println(playMessage);
 		while (true) {
 			String s = iStream.readLine();
 			try {
