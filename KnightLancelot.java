@@ -13,9 +13,9 @@ class KnightLancelot extends Brave {
 	
 	@Override 
 	public void attack(Dueler d) { 
-		String toReturn = this.name + " used " + attackName + "! /n" + d.attackedByBrave(this);
+		String toReturn = this.name + " used " + attackName + "! \n" + d.attackedByBrave(this);
 		this.AP = this.AP + 5;
-		System.out.println(toReturn); 
+		System.out.println(toReturn + "Knight Lancelot gains 5 attack points!"); 
 	}
 	
 	
