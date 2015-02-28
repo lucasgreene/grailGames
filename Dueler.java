@@ -37,7 +37,7 @@ abstract class Dueler extends Card {
 	@Override 
 	public String toString() {
 		return this.name + ": " + this.currentHP + "/" +
-	this.maxHP + "  Attack Power :" + this.AP + "  XP: " + this.XP;
+	this.maxHP + "  Attack Power :" + this.AP + "  XP : " + this.XP;
 	}
 	
 	
@@ -150,7 +150,7 @@ abstract class Dueler extends Card {
 			heal = room;
 		} 
 		this.currentHP = heal + this.currentHP;
-		return this.name + " recovered " + heal + "HP!";
+		return this.name + " recovered " + heal + " HP!";
 		
 	}
 	

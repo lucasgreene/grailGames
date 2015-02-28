@@ -29,7 +29,7 @@ abstract class Pure extends Dueler{
 			game.banish();
 			return this.name + " has been exiled from castle camelot!";
 		}
-		return "It's not very effective ... /n" + this.name + " took " + damage + " damage.";
+		return "It's not very effective ... \n" + this.name + " took " + damage + " damage.";
 	}
 	
 	@Override
@@ -42,12 +42,13 @@ abstract class Pure extends Dueler{
 			return this.name + " has been exiled from castle camelot!";
 		}
 
-		return "It's super effective! /n" + this.name + " took " + damage + " damage.";
+		return "It's super effective! \n" + this.name + " took " + damage + " damage.";
 	}
 	
 	@Override
 	public void attack(Dueler d) { 
-		System.out.print(this.name + " used " + attackName + "! /n" + d.attackedByPure(this)); 
+		System.out.println(this.name + " used " + attackName + "!");
+		System.out.println(d.attackedByPure(this)); 
 		
 	}
 	@Override 

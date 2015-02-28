@@ -31,7 +31,7 @@ abstract class Cowardly extends Dueler {
 			return this.name + " has been exiled from castle camelot!";
 		}
 		
-		return "It's not very effective ... /n" + this.name + " took " + damage + " damage.";
+		return "It's not very effective ... \n" + this.name + " took " + damage + " damage.";
 	}
 	
 	@Override
@@ -44,12 +44,13 @@ abstract class Cowardly extends Dueler {
 			return this.name + " has been exiled from castle camelot!";
 		}
 
-		return "It's super effective! /n" + this.name + " took " + damage + " damage.";
+		return "It's super effective! \n" + this.name + " took " + damage + " damage.";
 	}
 	
 	@Override
 	public void attack(Dueler d) { 
-		System.out.print (this.name + " used " + attackName + "! /n" + d.attackedByCowardly(this)); 
+		System.out.println(this.name + " used " + attackName + "! /n");
+		System.out.println(d.attackedByCowardly(this)); 
 		
 	}
 	

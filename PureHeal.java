@@ -7,12 +7,13 @@ class PureHeal extends Training{
 		super("Pure Heal", p);
 	}
 	public String effect(Dueler d) { 
-		return d.name + " used " + this.name + "! /n" + d.drinkPure();
+		return d.drinkPure();
 	}
 	
 	@Override
-	public void play() throws IOException { 
-		System.out.println(effect((game.getFromHome(Util.playInput (game.iStream)))));
+	public void play() throws IOException {
+		System.out.println(p.name + " used " + this.name);
+		System.out.println(effect((this.game.getFromHome(Util.playInput (game.iStream)))));
 	}
 	
 

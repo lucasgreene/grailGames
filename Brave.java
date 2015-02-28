@@ -44,12 +44,12 @@ abstract class Brave extends Dueler {
 			return this.name + " has been exiled from castle camelot!";
 		}
 
-		return "It's super effective! /n" + this.name + " took " + damage + " damage.";
+		return "It's super effective! \n" + this.name + " took " + damage + " damage.";
 	}
 	
 	@Override 
 	public void attack(Dueler d) { 
-		System.out.print(this.name + " used " + attackName + "! /n" + d.attackedByBrave(this)); 
+		System.out.print(this.name + " used " + attackName + "! \n" + d.attackedByBrave(this)); 
 			
 	}
 	

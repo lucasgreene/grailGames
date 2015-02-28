@@ -7,7 +7,7 @@ class RoyalHeal extends Training{
 		super("Royal Heal", p);
 	}
 	public String effect(Dueler d) { 
-		return d.name + " used " + this.name + "! /n" + d.drinkRoyal();
+		return d.name + " used " + this.name + "! \n" + d.drinkRoyal();
 	}
 	
 	void play() throws IOException {
