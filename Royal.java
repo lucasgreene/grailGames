@@ -47,7 +47,7 @@ abstract class Royal extends Dueler{
 	
 	@Override
 	public void attack(Dueler d) { 
-		System.out.println(this.name + " used " + attackName + "! /n" + d.attackedByRoyal(this)); 
+		System.out.print(this.name + " used " + attackName + "! /n" + d.attackedByRoyal(this)); 
 		
 	}
 	

@@ -78,6 +78,7 @@ public class Game {
 			arenaPlayer = field[0].toString();
 		}
 		System.out.println("Battle Position: " + arenaPlayer);
+		System.out.println("Bench: ");
 		for (int i = 1; i < field.length; i++) {
 			String out;
 			if (field[i] != null) {
@@ -279,6 +280,11 @@ public class Game {
 		}
 		
 		iStream.close();
+		if (turn == 1) {
+			System.out.println(p1.name + " attacked " + p2.name);
+		} else {
+			System.out.println(p2.name + " attacked " + p2.name);
+		}
 		System.out.println("Games over!");
 		
 
