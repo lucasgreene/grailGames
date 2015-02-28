@@ -5,43 +5,43 @@ import java.io.IOException;
 
 class Util {
 	
-	public static Card parse(String cardName) throws Exception{
+	public static Card parse(Player p, String cardName) throws Exception{
 		Card card = null;
 
 		if (cardName.equals("Page Robin")) {
-			card = new PageRobin();
+			card = new PageRobin(p);
 		} else if (cardName.equals("Peasant Merek")) {
-			card = new PeasantMerek();
+			card = new PeasantMerek(p);
 		} else if (cardName.equals("Page Lancelot")) {
-			card = new PageLancelot();
+			card = new PageLancelot(p);
 		} else if (cardName.equals("Peasant Concorde")) {
-			card = new PeasantConcorde();
+			card = new PeasantConcorde(p);
 		} else if (cardName.equals("Page Galahad")) {
-			card = new PageGalahad();
+			card = new PageGalahad(p);
 		} else  if (cardName.equals("Peasant Rowan")) {
-			card = new PeasantRowan();
+			card = new PeasantRowan(p);
 		} else if (cardName.equals("Anthrax Asylum")) {
-			card = new AnthraxAsylum();
+			card = new AnthraxAsylum(p);
 		} else if (cardName.equals("Cowardly Health")) {
-			card = new HolyHealthPotion("Cowardly Health");
+			card = new HolyHealthPotion("Cowardly Health", p);
 		} else if (cardName.equals("Pure Health")) {
-			card = new HolyHealthPotion("Pure Health");
+			card = new HolyHealthPotion("Pure Health", p);
 		} else if (cardName.equals("Brave Health")) {
-			card = new HolyHealthPotion("Brave Health");
+			card = new HolyHealthPotion("Brave Health", p);
 		} else if (cardName.equals("Jousting Practice")) {
-			card = new JoustingPractice();
+			card = new JoustingPractice(p);
 		} else if (cardName.equals("Camelot Reinforcements")) {
-			card = new CamelotReinforcements();
+			card = new CamelotReinforcements(p);
 		} else if (cardName.equals("Status Advance"))  {
-			card = new StatusAdvance();
+			card = new StatusAdvance(p);
 		} else if (cardName.equals("Boy Arthur")) {
-			card = new BoyArthur();
+			card = new BoyArthur(p);
 		} else if (cardName.equals("Peasant Patsy")) {
-			card = new PeasantPatsy();
+			card = new PeasantPatsy(p);
 		} else if (cardName.equals("Bridge of Death")) {
-			card = new BridgeDeath();
+			card = new BridgeDeath(p);
 		} else if (cardName.equals("Royal Health")) {
-			card = new HolyHealthPotion("Royal Health");
+			card = new HolyHealthPotion("Royal Health", p);
 		} else {
 			throw new Exception("Error in card deck!");
 		}

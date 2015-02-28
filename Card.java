@@ -15,9 +15,7 @@ abstract class Card {
 		this.p = p;
 	}	
 	
-	void play () { 
-	
-	}
+	abstract void play (); 
 	
 
 }

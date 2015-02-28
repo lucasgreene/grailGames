@@ -11,7 +11,7 @@ public class Player {
 	Game game;
 	private int deckIndex = 0;
 	LinkedList<Card> hand = new LinkedList<Card>();
-	
+	BufferedReader iStream = game.iStream;
 	public Player(String name, String deckFileName, Game game) throws IOException {
 		this.name = name;
 		this.deck = GrailIO.getDeck(deckFileName);	
@@ -23,7 +23,7 @@ public class Player {
 	public void draw() {
 		if (deckIndex < deck.length) {
 			try {
-				Card card = Util.parse(deck[deckIndex]);
+				Card card = Util.parse(this, deck[deckIndex]);
 				hand.addFirst(card);
 				deckIndex ++;
 				System.out.println(name + " drew a card!");
@@ -33,7 +33,7 @@ public class Player {
 		}
 	}
 	
-	public void turn(BufferedReader iStream) throws IOException {
+	public void turn() throws IOException {
 		System.out.println(name + "'s turn");
 		draw();
         Util.turnInput(this, iStream);
@@ -61,7 +61,7 @@ public class Player {
 	}
 	
 	public void printField() {
-		
+		game.printField();
 		
 	}
 	

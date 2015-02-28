@@ -1,30 +1,73 @@
 package grailgames;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 
 public class Game {
 	
 	Player p1;
 	Player p2;
 	private int turn = 1;
-	private Card[] field1 = new Card[]{null,null,null,null,null,null,null};
-	private Card[] field2 = new Card[]{null,null,null,null,null,null,null};
+	private Card[] homeField = new Card[]{null,null,null,null,null,null,null};
+	private Card[] awayField = new Card[]{null,null,null,null,null,null,null};
 	private boolean gameOver = false;
+	BufferedReader iStream;
 	
 	public Game(Player player1, Player player2) {
 		this.p1 = player1;
 		this.p2 = player2;
 		this.p1.game = this;
 		this.p2.game = this;
+		this.iStream = new BufferedReader(new InputStreamReader(System.in));
 		
 	}
 	
 	private void nextTurn() {
 		this.turn *= -1;
+		Card[] temp = homeField;
+		homeField = awayField;
+		awayField = temp;
+	}
+	
+	public int getFromHome(int i) {
+		return 0;
+	}
+	
+	public void printFieldHelp(Card[] field) {
+	
+		System.out.print("Battle Position: " + field[0].toString());
+		for (int i = 1; i < field.length; i++) {
+			System.out.print(Integer.toString(i) + "        " + 
+							    field[i].toString());
+		}
+	}
+	public void printField() {
+		String myName; 
+		String enemyName;
+		if (turn == 1) {
+			myName = p1.name;
+		    enemyName  = p2.name;
+		} else {
+			myName = p2.name;
+			enemyName = p1.name;
+		}
+		System.out.println(myName + "'s Field:");
+		printFieldHelp(this.homeField);
+		System.out.println(enemyName + "'s Field");
+		printFieldHelp(this.awayField);
+		
+		
+	}
+	
+	public void place(Card dueler) {
+		for (int i = 0; i < homeField.length; i++) {
+			if (homeField[i] == null) {
+				homeField[i] = dueler;
+				break;  
+			}
+		}
+			
 	}
 	
 	public void startGame() throws IOException, Exception {
@@ -34,20 +77,21 @@ public class Game {
 
 		}
 
-		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
 		while (true) {
+			p1.turn();
 			if (gameOver) {
 				break;
 			}
-			p1.turn(input);
+			nextTurn();
+			p2.turn();
 			if (gameOver) {
 				break;
 			}
-			p2.turn(input);
+			nextTurn();
 			gameOver = true;
 		}
-		
+		iStream.close();
 		System.out.println("Games over!");
 		
 
