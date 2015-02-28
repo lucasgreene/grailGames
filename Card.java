@@ -6,7 +6,7 @@ import java.io.IOException;
 abstract class Card {
 	String name;
 	Player p;
-	Game game = p.game;
+	Game game;
 	
 	/**
 	 * Constructs a card
@@ -16,7 +16,8 @@ abstract class Card {
 	Card (String name, Player p) { 
 		this.name = name;
 		this.p = p;
-	}	
+		this.game = p.game;
+	}
 	
 	abstract void play () throws IOException; 
 	

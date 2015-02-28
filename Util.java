@@ -43,7 +43,7 @@ class Util {
 		} else if (cardName.equals("Royal Health")) {
 			card = new HolyHealthPotion("Royal Health", p);
 		} else {
-			throw new Exception("Error in card deck!");
+			throw new Exception("Can't read card deck");
 		}
 
 		return card;			

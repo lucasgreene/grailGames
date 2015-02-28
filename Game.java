@@ -17,9 +17,11 @@ public class Game {
 	public Game(Player player1, Player player2) {
 		this.p1 = player1;
 		this.p2 = player2;
+		this.iStream = new BufferedReader(new InputStreamReader(System.in));
 		this.p1.game = this;
 		this.p2.game = this;
-		this.iStream = new BufferedReader(new InputStreamReader(System.in));
+		
+		
 		
 	}
 	
@@ -32,6 +34,11 @@ public class Game {
 	
 	public Dueler getFromHome(int i) {
 		Dueler toReturn = homeField[i];
+		return toReturn;
+	}
+	
+	public Dueler getFromAway(int i) {
+		Dueler toReturn = awayField[i];
 		return toReturn;
 	}
 	
@@ -61,6 +68,44 @@ public class Game {
 		
 	}
 	
+	public void attack() {
+		if ((homeField[0] != null) && (homeField[0].XP > 0)) {
+			if (awayField[0] != null) {
+				homeField[0].attack(awayField[0]);
+			} else {
+				this.gameOver = true;
+			}
+		} else if ((homeField[0] != null) && (homeField[0].XP <= 0)) {
+			System.out.println(homeField[0].name + 
+					" isn't experienced enough to attck!") ;
+		} else {
+			System.out.println("No dueler in battle position");
+		}
+	}
+	
+	public void pass() {
+		if (homeField[0] != null) {
+			homeField[0].pass();
+		}
+	}
+	
+	public void homeSwitch(int i) {
+		Dueler tmp = homeField[0];
+		homeField[0] = homeField[i];
+		homeField[i] = tmp;
+		if (homeField[0] != null) {
+			homeField[0].position = 0;
+			System.out.println(homeField[0].name + 
+							" was placed in the arena!");
+		}
+		if (homeField[i] != null) {
+			homeField[i].position = i;
+			System.out.println(homeField[i].name + 
+						" was placed on the bench!");
+		}
+		
+	}
+	
 	public void place(Dueler dueler) {
 		for (int i = 0; i < homeField.length; i++) {
 			if (homeField[i] == null) {
@@ -72,24 +117,48 @@ public class Game {
 			
 	}
 	
-	public void replace(Card dueler, int i) {
+	public void replace(Dueler dueler, int i) {
+		homeField[i] = dueler;
+		dueler.position = i;
 		
 	}
 	
 	public void galahadSpecial() {
-		
+		for (int i = 1; i < homeField.length; i++) {
+			if (homeField[i] != null) {
+				homeField[i].heal(5);
+			}
+		}
 	}
 	
+	
 	public void awaySwitch(int i) {
+		if (awayField[i] != null) {
+			Dueler tmp = awayField[i];
+			awayField[i] = awayField[0];
+			awayField[i].position = i;
+			if (awayField[i] != null) {
+				System.out.println(awayField[i].name + 
+						" was placed on the bench!");
+			}
+			awayField[0] = tmp;
+			awayField[0].position = 0;
+			System.out.println(awayField[0].name + " was placed in the arena!");
+		}
 		
 	}
 	
 	private void incrementXP() {
-		
+		for (Dueler d : homeField) {
+			if (d != null) {
+				d.XP ++;
+			}
+		}	
 	}
 	
 	public void banish() {
-		
+		awayField[0] = null;
+		System.out.println("Someone was banished");
 	}
 	
 	public void startGame() throws IOException, Exception {
@@ -101,10 +170,12 @@ public class Game {
 
 
 		while (true) {
+			System.out.println("here");
 			p1.turn();
 			if (gameOver) {
 				break;
 			}
+			System.out.println("asd");
 			incrementXP();
 			nextTurn();
 			p2.turn();
@@ -113,7 +184,7 @@ public class Game {
 			}
 			incrementXP();
 			nextTurn();
-			gameOver = true;
+			//gameOver = true;
 		}
 		iStream.close();
 		System.out.println("Games over!");
@@ -147,15 +218,22 @@ public class Game {
 			String n2 = "Tim";
 			String d1 = "src/grailgames/DeckPreExtension.txt";
 			String d2 = d1;
+			
 			Player p1 = new Player(n1, d1, null);
 			Player p2 = new Player(n2, d2, null);
 			Game game = new Game(p1,p2);
-			game.startGame();
+			Player test = game.p1;
+			Game testG = test.game;
+			Card testC = new CcRowan(test, 50);
+			System.out.println(testC.toString());
+			String s = testC.game.iStream.readLine();
+			System.out.print(s);
+		    game.startGame();
 
 	    } catch (IOException e) {
-	    	System.out.println(e.getMessage());
+	    	System.out.println(e.getMessage() + "Input stream error");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage() + ": other exception");
 		}
 	}
 }
