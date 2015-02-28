@@ -12,7 +12,7 @@ class PeasantRowan extends Pure {
 	
 	@Override 
 	public String evolve() {
-		return null;
+		//this = new CcRowan(this.p, )
 	}
 	
 }
