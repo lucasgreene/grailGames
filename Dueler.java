@@ -40,6 +40,7 @@ abstract class Dueler extends Card {
 	this.maxHP + "  Attack Power :" + this.AP + "  XP: " + this.XP;
 	}
 	
+	
 	/**
 	 * Decreases the HP of this dueler when attacked by a cowardly dueler
 	 * 
@@ -51,7 +52,11 @@ abstract class Dueler extends Card {
 	public String attackedByCowardly(Dueler d) { 
 		int damage = d.AP;
 		this.currentHP = this.currentHP - damage; 
-
+		
+		if (this.currentHP <= 0) {
+			game.banish();
+			return this.name + " has been exiled from castle camelot!";
+		}
 		return this.name + " took " + damage + " damage.";
 	}
 	
@@ -66,6 +71,11 @@ abstract class Dueler extends Card {
 	public String attackedByBrave(Dueler d) { 
 		int damage = d.AP;
 		this.currentHP = this.currentHP - damage; 
+		
+		if (this.currentHP <= 0) {
+			game.banish();
+			return this.name + " has been exiled from castle camelot!";
+		}
 
 		return this.name + " took " + damage + " damage.";
 		
@@ -82,6 +92,11 @@ abstract class Dueler extends Card {
 	public String attackedByPure(Dueler d) { 
 		int damage = d.AP;
 		this.currentHP = this.currentHP - damage; 
+		
+		if (this.currentHP <= 0) {
+			game.banish();
+			return this.name + " has been exiled from castle camelot!";
+		}
 
 		return this.name + " took " + damage + " damage.";
 	}
@@ -97,6 +112,11 @@ abstract class Dueler extends Card {
 	public String attackedByRoyal(Dueler d) { 
 		int damage = d.AP;
 		this.currentHP = this.currentHP - damage; 
+		
+		if (this.currentHP <= 0) {
+			game.banish();
+			return this.name + " has been exiled from castle camelot!";
+		}
 
 		return this.name + " took " + damage + " damage.";
 		

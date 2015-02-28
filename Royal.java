@@ -24,6 +24,11 @@ abstract class Royal extends Dueler{
 			damage = d.AP -20;
 			this.currentHP = this.currentHP - damage; 
 		} 
+		
+		if (this.currentHP <= 0) {
+			game.banish();
+			return this.name + " has been exiled from castle camelot!";
+		}
 		return "It's not very effective ... /n" + this.name + " took " + damage + " damage.";
 	}
 	
@@ -31,6 +36,11 @@ abstract class Royal extends Dueler{
 	public String attackedByBrave(Dueler d) { 
 		int damage = d.AP + 20;
 		this.currentHP = this.currentHP - damage; 
+		
+		if (this.currentHP <= 0) {
+			game.banish();
+			return this.name + " has been exiled from castle camelot!";
+		}
 
 		return "It's super effective! /n" + this.name + " took " + damage + " damage.";
 	}
