@@ -182,13 +182,12 @@ abstract class Dueler extends Card {
 	}
 	
 	public void play() throws IOException{ 
-		this.p.game.place(this);
+		this.game.place(this);
 		if (this.position == 0) {
 			System.out.println(this.name + " has been placed in the arena!");
-		} 
-		
-		System.out.println(this.name + " has been placed on the bench!");
-		
+		} else {		
+			System.out.println(this.name + " has been placed on the bench!");
+		}
 		
 	}
 	
