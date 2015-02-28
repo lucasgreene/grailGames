@@ -12,7 +12,7 @@ import java.util.LinkedList;
 public class Player {
 
 	String name;
-	String[] deck;
+	private String[] deck;
 	Game game;
 	private int deckIndex = 0;
 	LinkedList<Card> hand = new LinkedList<Card>();

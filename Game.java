@@ -12,8 +12,8 @@ import java.io.InputStreamReader;
  */
 public class Game implements Communicate {
 
-	Player p1;
-	Player p2;
+	private Player p1;
+	private Player p2;
 	private int turn = 1;
 	private Dueler[] homeField = new Dueler[] { null, null, null, null, null,
 			null, null };
@@ -83,7 +83,7 @@ public class Game implements Communicate {
 	 * 
 	 * @param field
 	 */
-	public void printFieldHelp(Dueler[] field) {
+	private void printFieldHelp(Dueler[] field) {
 		String arenaPlayer;
 		if (field[0] == null) {
 			arenaPlayer = "Empty";
@@ -258,6 +258,10 @@ public class Game implements Communicate {
 		awayField[0] = null;
 	}
 
+	/**
+	 * Removes the player in homeField King Arthur is the only one who would
+	 * call this
+	 */
 	public void suicide() {
 		homeField[0] = null;
 	}

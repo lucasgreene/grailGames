@@ -80,8 +80,9 @@ class Util {
 
 		String errorMessage = "Please input one of: print hand;"
 				+ " print field; switch #; play #; attack; pass;";
+		
 		boolean turnOver = false;
-		while (!turnOver) {
+		while (!turnOver) { // Reads input until attack or play entered
 			String s = iStream.readLine();
 			String[] toks = s.split(" ");
 
@@ -145,7 +146,8 @@ class Util {
 				+ "0 for the battling Duelers, 1-6 for the bench ";
 		String errorMessage = "Invalid input";
 		System.out.println(playMessage);
-		while (true) {
+		
+		while (true) {// Reads input until 0-6 entered
 			String s = iStream.readLine();
 			try {
 				int pos = Integer.parseInt(s);
