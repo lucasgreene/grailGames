@@ -13,7 +13,7 @@ class CamelotReinforcements extends Training {
 		p.draw();
 		p.draw();
 		String toReturn = p.name + " used " + this.name + "! /n" + p.name + " drew three cards!";
-		System.out.println(toReturn);
+		System.out.print(toReturn);
 	}
 	
 	

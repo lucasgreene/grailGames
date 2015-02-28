@@ -246,7 +246,6 @@ public class Game {
 	 */
 	public void banish() {
 		awayField[0] = null;
-		System.out.println("Someone was banished");
 	}
 	
 	/** 
@@ -309,7 +308,7 @@ public class Game {
 		try {
 			String n1 = "Luke";
 			String n2 = "Tim";
-			String d1 = "src/grailgames/DeckPreExtension.txt";
+			String d1 = "src/grailgames/DeckPostExtension.txt";
 			String d2 = d1;
 			
 			Player p1 = new Player(n1, d1, null);
