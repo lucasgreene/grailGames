@@ -9,11 +9,11 @@ class CamelotReinforcements extends Training {
 	
 	@Override
 	void play() { 
-		p.draw();
-		p.draw();
-		p.draw();
-		String toReturn = p.name + " used " + this.name + "! \n" + p.name + " drew three cards!";
+		String toReturn = p.name + " used " + this.name + "! \n";
 		System.out.println(toReturn);
+		p.draw();
+		p.draw();
+		p.draw();
 	}
 	
 	

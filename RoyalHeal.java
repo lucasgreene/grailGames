@@ -11,7 +11,7 @@ class RoyalHeal extends Training{
 	}
 	
 	void play() throws IOException {
-		System.out.println(effect(this.game.getFromHome(Util.playInput(game.iStream))));
+		System.out.println(effect(this.game.getFromHome(Util.playInput(game.getStream()))));
 	}
 
 

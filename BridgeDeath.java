@@ -9,13 +9,16 @@ public class BridgeDeath extends Training{
 	}
 	
 	void effect(int i) {
-		game.awaySwitch(i);
-		
-		
+		if (i >= 1) {
+			game.bridgeOfdeath(i);
+		} else {
+			System.out.print("No effect!");
+		}
 	}
 	
-	public void play() throws IOException{ 
-		effect(Util.playInput(game.iStream));
+	public void play() throws IOException{
+		System.out.println(p.name + " played Bride Of Death");
+		effect(Util.playInput(game.getStream()));
 	}
 	
 

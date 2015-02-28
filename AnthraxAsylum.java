@@ -16,7 +16,7 @@ class AnthraxAsylum extends Training {
 	@Override 
 	public void play() throws IOException { 
 		System.out.println(p.name + " used " + this.name);
-		System.out.println(effect((this.game.getFromHome(Util.playInput(game.iStream)))));
+		System.out.println(effect((this.game.getFromHome(Util.playInput(game.getStream())))));
 	}
 	
 

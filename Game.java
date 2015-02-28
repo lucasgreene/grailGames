@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * @author LUke
  *
  */
-public class Game {
+public class Game implements Communicate{
 
 	Player p1;
 	Player p2;
@@ -20,7 +20,7 @@ public class Game {
 	private Dueler[] awayField = new Dueler[] { null, null, null, null, null,
 			null, null };
 	private boolean gameOver = false;
-	BufferedReader iStream;
+	private BufferedReader iStream;
 
 	/**
 	 * Constructs the game class
@@ -38,7 +38,15 @@ public class Game {
 		this.p2.game = this;
 
 	}
-
+	
+	/** 
+	 * returns the BufferedReader being used by the Game
+	 */
+	public BufferedReader getStream() {
+		return this.iStream;
+	}
+	
+	
 	/**
 	 * Changes the state of the game to the next turn
 	 */
@@ -207,6 +215,7 @@ public class Game {
 				homeField[i].heal(5);
 			}
 		}
+		System.out.println("Galahad's special power is working...");
 	}
 
 	/**
@@ -215,20 +224,21 @@ public class Game {
 	 * 
 	 * @param i
 	 */
-	public void awaySwitch(int i) {
+	public void bridgeOfdeath(int i) {
 		if (awayField[i] != null) {
 			Dueler tmp = awayField[i];
 			awayField[i] = awayField[0];
-			awayField[i].position = i;
-			if (awayField[i] != null) {
-				System.out.println(awayField[i].name
+			if (awayField[0] != null) {
+				System.out.println(awayField[0].name
 						+ " was placed on the bench!");
+				awayField[i].position = i;
 			}
 			awayField[0] = tmp;
 			awayField[0].position = 0;
 			System.out.println(awayField[0].name + " was placed in the arena!");
+		} else {
+			System.out.println("No effect!");
 		}
-
 	}
 
 	/**
@@ -248,7 +258,11 @@ public class Game {
 	public void banish() {
 		awayField[0] = null;
 	}
-
+	
+	public void suicide() {
+		homeField[0] = null;
+	}
+	
 	/**
 	 * Starts the game by drawing 6 cards for each player, and then continues to
 	 * cycle between p1 turn and p2 turn until gameOver = true

@@ -54,7 +54,7 @@ public class Player {
 	public void turn() throws IOException {
 		System.out.println(name + "'s turn");
 		draw();
-        Util.turnInput(this, game.iStream);
+        Util.turnInput(this, game.getStream());
 
 				
 	}

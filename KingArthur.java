@@ -17,6 +17,10 @@ class KingArthur extends Royal {
 		game.banish();
 		this.currentHP = this.currentHP - 60;
 		System.out.println(this.name + " has lost 60 HP!");
+		if (this.currentHP <= 0) {
+			game.suicide();
+			System.out.print("King Arthur has killed himself!");
+		}
 		System.out.println(d.name + " has been exiled from castle camelot!");
 		
 	}
