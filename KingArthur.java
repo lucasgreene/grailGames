@@ -11,10 +11,17 @@ class KingArthur extends Royal {
 		super("King Arthur", p, 160,currentHP,0,"Excalibur",50, 0);
 	}
 	
-	@Override 
-	public String evolve() {
-		return null;
+	@Override
+	public void attack(Dueler d) { 
+		System.out.println(this.name + " used " + attackName + "!");
+		game.banish();
+		this.currentHP = this.currentHP - 60;
+		System.out.println(this.name + " has lost 60 HP!");
+		System.out.println(d.name + " has been exiled from castle camelot!");
+		
 	}
+		
+		
 	
 	
 }
