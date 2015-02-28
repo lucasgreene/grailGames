@@ -185,6 +185,10 @@ abstract class Dueler extends Card {
 		this.currentHP = heal + this.currentHP;
 		return this.name + " gained " + heal + "HP!";
 	}
+	
+	public void Pass() { 
+		
+	}
 
 
 }

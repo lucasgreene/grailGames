@@ -1,5 +1,7 @@
 package grailgames;
 
+import java.io.BufferedReader;
+
 abstract class Card {
 	String name; 
 	
@@ -11,5 +13,10 @@ abstract class Card {
 	Card (String name) { 
 		this.name = name;
 	}	
+	
+	String play (Player p, BufferedReader iStream) { 
+		return null;
+	}
+	
 
 }
