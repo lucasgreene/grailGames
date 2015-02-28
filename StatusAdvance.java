@@ -1,5 +1,7 @@
 package grailgames;
 
+import java.io.IOException;
+
 class StatusAdvance extends Training {
 	StatusAdvance(Player p) {
 		super("Status Advance",p);
@@ -13,8 +15,8 @@ class StatusAdvance extends Training {
 	}
 		
 	@Override
-	void play() {
-		System.out.println(effect(getFromHome(Util.playInput(p.iStream)));
+	void play() throws IOException {
+		System.out.println(effect(this.game.getFromHome(Util.playInput(game.iStream))));
 			
 	}
 		

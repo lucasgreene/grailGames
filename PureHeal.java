@@ -1,8 +1,8 @@
 package grailgames;
 
-import java.io.BufferedReader;
+import java.io.IOException;
 
-class PureHeal extends HolyHealthPotion{
+class PureHeal extends Training{
 	public PureHeal(Player p) {
 		super("Pure Heal", p);
 	}
@@ -11,8 +11,8 @@ class PureHeal extends HolyHealthPotion{
 	}
 	
 	@Override
-	public void play() { 
-		System.out.println(effect((getFromHome(Util.playInput(p.iStream)))));
+	public void play() throws IOException { 
+		System.out.println(effect((game.getFromHome(Util.playInput (game.iStream)))));
 	}
 	
 

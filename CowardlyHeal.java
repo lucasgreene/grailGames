@@ -2,7 +2,7 @@ package grailgames;
 
 import java.io.IOException;
 
-class CowardlyHeal extends HolyHealthPotion{
+class CowardlyHeal extends Training{
 	public CowardlyHeal(Player p) {
 		super("Cowardly Heal", p);
 	}
@@ -12,7 +12,7 @@ class CowardlyHeal extends HolyHealthPotion{
 	
 	public void play() throws IOException { 
 		System.out.println(p.name + " used " + this.name);
-		System.out.println(effect((this.game.getFromHome(Util.playInput(p.iStream)))));
+		System.out.println(effect((this.game.getFromHome(Util.playInput(game.iStream)))));
 	}
 
 

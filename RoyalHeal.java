@@ -1,6 +1,8 @@
 package grailgames;
 
-class RoyalHeal extends HolyHealthPotion{
+import java.io.IOException;
+
+class RoyalHeal extends Training{
 	public RoyalHeal(Player p) {
 		super("Royal Heal", p);
 	}
@@ -8,8 +10,8 @@ class RoyalHeal extends HolyHealthPotion{
 		return d.name + " used " + this.name + "! /n" + d.drinkRoyal();
 	}
 	
-	public void play() { 
-		System.out.println(effect((getFromHome(Util.playInput(p.iStream)))));
+	void play() throws IOException {
+		System.out.println(effect(this.game.getFromHome(Util.playInput(game.iStream))));
 	}
 
 

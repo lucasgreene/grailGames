@@ -10,7 +10,7 @@ public class BridgeDeath extends Training{
 	}
 	
 	public void play() { 
-		System.out.println(effect((this.game.getFromHome(Util.playInput(p.iStream)))));
+		System.out.println(effect((this.game.getFromHome(Util.playInput(game.iStream)))));
 	}
 	
 
