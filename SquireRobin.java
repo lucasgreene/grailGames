@@ -7,8 +7,8 @@ class SquireRobin extends Cowardly {
 	 *
 	 *@param currentHP - the current hit points of this SquireRobin
 	 */
-	SquireRobin(int currentHP) {
-		super("Squire Robin",100,currentHP,0,"Dash",30,0);
+	SquireRobin(int currentHP, Player p) {
+		super("Squire Robin",p,100,currentHP,0,"Dash",30,0);
 	}
 
 	@Override 

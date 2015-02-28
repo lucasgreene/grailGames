@@ -20,8 +20,9 @@ abstract class Dueler extends Card {
 	 *@param AP - the amount of attack points of the dueler's attack
 	 *@param arena - the amount of consecutive times spent in arena 
 	 */
-	Dueler(String name, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
-		super(name);
+	
+	Dueler(String name, Player p, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
+		super(name, p);
 		this.maxHP = maxHP;
 		this.currentHP = currentHP;
 		this.XP = XP;

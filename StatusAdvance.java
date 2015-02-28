@@ -1,8 +1,8 @@
 package grailgames;
 
 class StatusAdvance extends Training {
-	StatusAdvance() {
-		super("Status Advance");
+	StatusAdvance(Player p) {
+		super("Status Advance",p);
 	}
 	String effect(Dueler d) {
 		if (d.XP >= 3) {

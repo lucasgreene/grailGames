@@ -6,8 +6,8 @@ class PeasantPatsy extends Royal{
 	 * Constructs a PeasantPatsy
 	 *
 	 */
-	PeasantPatsy() {
-		super("Peasant Patsy",60,60,0,"Patsy Punch",30,0);
+	PeasantPatsy(Player p) {
+		super("Peasant Patsy",p,60,60,0,"Patsy Punch",30,0);
 	}
 	
 	@Override 

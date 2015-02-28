@@ -14,8 +14,8 @@ abstract class Cowardly extends Dueler {
 	 *@param AP - the amount of attack points of the cowardly dueler's attack
 	 *
 	 */
-	Cowardly(String name, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
-		super(name,maxHP,currentHP,XP,attackName, AP, arena);
+	Cowardly(String name, Player p, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
+		super(name, p, maxHP,currentHP,XP,attackName, AP, arena);
 	}
 	
 	@Override

@@ -2,8 +2,8 @@ package grailgames;
 
 abstract class Training extends Card {
 	
-	Training(String name) {
-		super(name);
+	Training(String name, Player p) {
+		super(name, p);
 	}
 	
 	// util.playInput()

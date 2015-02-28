@@ -6,8 +6,8 @@ class PageRobin extends Cowardly{
 	 * Constructs a PageRobin
 	 *
 	 */
-	PageRobin() {
-		super("Page Robin",60,60,0,"Squeal",20,0);
+	PageRobin(Player p) {
+		super("Page Robin",p,60,60,0,"Squeal",20,0);
 	}
 	
 	@Override 

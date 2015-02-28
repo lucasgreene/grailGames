@@ -13,8 +13,8 @@ abstract class Royal extends Dueler{
 	 *@param AP - the amount of attack points of the royal dueler's attack
 	 *
 	 */
-	Royal(String name, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
-		super(name,maxHP,currentHP,XP, attackName, AP, arena);
+	Royal(String name, Player p, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
+		super(name, p,maxHP,currentHP,XP, attackName, AP, arena);
 	}
 	
 	@Override

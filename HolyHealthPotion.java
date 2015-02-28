@@ -3,8 +3,8 @@ package grailgames;
 class HolyHealthPotion extends Training {
 	
 	
-	public HolyHealthPotion(String name) {
-		super(name);
+	public HolyHealthPotion(String name, Player p) {
+		super(name, p);
 	}
 
 

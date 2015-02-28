@@ -13,8 +13,8 @@ abstract class Pure extends Dueler{
 	 *@param AP - the amount of attack points of the pure dueler's attack
 	 *
 	 */
-	Pure(String name, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
-		super(name,maxHP,currentHP,XP, attackName, AP, arena);
+	Pure(String name,Player p, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
+		super(name, p,maxHP,currentHP,XP, attackName, AP, arena);
 	}
 	
 	@Override

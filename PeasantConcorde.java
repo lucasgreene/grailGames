@@ -7,8 +7,8 @@ class PeasantConcorde extends Brave{
 	 *
 	 *@param currentHP - the current hit points of this Peasant Concorde
 	 */
-	PeasantConcorde() {
-		super("Peasant Concorde",40,40,0,"Brave Bite", 30,0);
+	PeasantConcorde(Player p) {
+		super("Peasant Concorde", p,40,40,0,"Brave Bite", 30,0);
 	}
 	
 	

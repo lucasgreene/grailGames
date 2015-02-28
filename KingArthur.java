@@ -7,8 +7,8 @@ class KingArthur extends Royal {
 	 *
 	 *@param currentHP - the current hit points of this KingArthur
 	 */
-	KingArthur(int currentHP) {
-		super("King Arthur",160,currentHP,0,"Excalibur",50, 0);
+	KingArthur(Player p, int currentHP) {
+		super("King Arthur", p, 160,currentHP,0,"Excalibur",50, 0);
 	}
 	
 	@Override 

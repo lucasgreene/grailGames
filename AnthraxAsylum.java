@@ -1,8 +1,8 @@
 package grailgames;
 
 class AnthraxAsylum extends Training {
-	AnthraxAsylum() {
-		super("Anthrax Asylum");
+	AnthraxAsylum(Player p) {
+		super("Anthrax Asylum", p);
 	}
 	String effect(Dueler d) {
 		int gain = d.maxHP - d.currentHP;

@@ -1,8 +1,8 @@
 package grailgames;
 
 public class BridgeDeath extends Training{
-	BridgeDeath(){
-		super("Bridge of Death");
+	BridgeDeath(Player p){
+		super("Bridge of Death", p);
 	}
 	
 	void effect(Dueler d) {

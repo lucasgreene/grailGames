@@ -13,8 +13,8 @@ abstract class Brave extends Dueler {
 	 *@param AP - the amount of attack points of the brave dueler's attack
 	 *
 	 */
-	Brave(String name, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
-		super(name,maxHP,currentHP,XP,attackName, AP, arena);
+	Brave(String name, Player p, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
+		super(name, p, maxHP,currentHP,XP,attackName, AP, arena);
 	}
 	
 	

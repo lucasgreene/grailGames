@@ -1,8 +1,8 @@
 package grailgames;
 
 class JoustingPractice extends Training {
-	JoustingPractice() {
-		super("Jousting Practice");
+	JoustingPractice(Player p) {
+		super("Jousting Practice", p);
 	}
 	public String effect(Dueler d) {
 		int heal = 30;

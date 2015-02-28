@@ -6,8 +6,8 @@ class PageLancelot extends Brave {
 	 * Constructs a PageLancelot
 	 *
 	 */
-	PageLancelot() {
-		super("Page Lancelot",60,60,0,"Punch of Fury:", 20,0);
+	PageLancelot(Player p) {
+		super("Page Lancelot",p,60,60,0,"Punch of Fury:", 20,0);
 	}
 	
 	@Override 

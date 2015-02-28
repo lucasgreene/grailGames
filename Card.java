@@ -3,19 +3,21 @@ package grailgames;
 import java.io.BufferedReader;
 
 abstract class Card {
-	String name; 
+	String name;
+	Player p;
 	
 	/**
 	 * Constructs a card
 	 *
 	 *@param name - the name of the card
 	 */
-	Card (String name) { 
+	Card (String name, Player p) { 
 		this.name = name;
+		this.p = p;
 	}	
 	
-	String play (Player p, BufferedReader iStream) { 
-		return null;
+	void play (Game g, Player p, BufferedReader iStream) { 
+	
 	}
 	
 
