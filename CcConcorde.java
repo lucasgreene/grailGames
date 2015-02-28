@@ -7,7 +7,7 @@ class CcConcorde extends Brave {
 	 *
 	 *@param currentHP - the current hit points of this dueler 
 	 */
-	CcConcorde(Player p, int currentHP) {
+	CcConcorde(int currentHP,Player p) {
 		super("CC Concorde",p, 70,currentHP,0,"Concorde's Conquer", 30,0);
 	}
 	

@@ -12,7 +12,11 @@ class PeasantPatsy extends Royal{
 	
 	@Override 
 	public String evolve() {
-		return null;
+		Dueler levelUp = new CcPatsy(this.currentHP, this.p);
+		levelUp.currentHP = levelUp.maxHP - (this.maxHP- this.currentHP); 
+		game.replace(levelUp, this.position);
+		return this.name + " has evolved to " + levelUp.name + " !";
+		
 	}
 }
 

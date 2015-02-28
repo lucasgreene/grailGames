@@ -12,7 +12,11 @@ class PageLancelot extends Brave {
 	
 	@Override 
 	public String evolve() {
-		return null;
+		Dueler levelUp = new SquireLancelot(this.currentHP, this.p);
+		levelUp.currentHP = levelUp.maxHP - (this.maxHP- this.currentHP); 
+		game.replace(levelUp, this.position);
+		return this.name + " has evolved to " + levelUp.name + " !";
+		
 	}
 
 	

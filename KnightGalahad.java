@@ -8,7 +8,7 @@ class KnightGalahad extends Pure {
 	 *
 	 *@param currentHP - the current hit points of this KnightGalahad
 	 */
-	KnightGalahad(Player p, int currentHP) {
+	KnightGalahad(int currentHP, Player p) {
 		super("Knight Galahad",p,120,currentHP,0,"Punch of Purity",60,0);
 	}
 	

@@ -7,7 +7,7 @@ class KnightLancelot extends Brave {
 	 *
 	 *@param currentHP - the current hit points of this KnightLancelot
 	 */
-	KnightLancelot(Player p, int currentHP) {
+	KnightLancelot(int currentHP, Player p) {
 		super("Knight Lancelot",p,140,currentHP,0,"Mighty Joust", 50,0);
 	}
 	

@@ -12,7 +12,10 @@ class PeasantRowan extends Pure {
 	
 	@Override 
 	public String evolve() {
-		//this = new CcRowan(this.p, )
+		Dueler levelUp = new CcRowan(this.currentHP, this.p);
+		levelUp.currentHP = levelUp.maxHP - (this.maxHP- this.currentHP); 
+		game.replace(levelUp, this.position);
+		return this.name + " has evolved to " + levelUp.name + " !";
+		
 	}
-	
 }

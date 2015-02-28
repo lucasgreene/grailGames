@@ -7,7 +7,7 @@ class CcRowan extends Pure {
 	 *
 	 *@param currentHP - the current hit points of this CcRowan
 	 */
-	CcRowan(Player p, int currentHP) {
+	CcRowan(int currentHP, Player p) {
 		super("CC Rowan",p,100,currentHP,0,"Rowan's Rampage", 40,0);
 	}
 	

@@ -7,7 +7,7 @@ class CcPatsy extends Royal {
 	 *
 	 *@param currentHP - the current hit points of this dueler 
 	 */
-	CcPatsy(Player p, int currentHP) {
+	CcPatsy(int currentHP,Player p) {
 		super("CC Patsy", p,100,currentHP,0,"Coconut Chuck", 50,0);
 	}
 	

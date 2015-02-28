@@ -7,7 +7,7 @@ class KnightRobin extends Cowardly{
 	 *
 	 *@param currentHP - the current hit points of this KnightRobin
 	 */
-	KnightRobin(Player p, int currentHP) {
+	KnightRobin(int currentHP, Player p) {
 		super("Knight Robin", p, 120,currentHP,0,"Camouflage", 60,0);
 	}
 	

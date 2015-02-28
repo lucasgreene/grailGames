@@ -7,7 +7,7 @@ class MinstrelMerek extends Cowardly {
 	 *
 	 *@param currentHP - the current hit points of this MinstrelMerek
 	 */
-	MinstrelMerek(Player p, int currentHP) {
+	MinstrelMerek(int currentHP,Player p) {
 		super("Minstrel Merek",p,150,currentHP,0,"Lute Laceration", 50,0);
 	}
 	
