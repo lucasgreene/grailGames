@@ -49,7 +49,7 @@ abstract class Brave extends Dueler {
 	
 	@Override 
 	public void attack(Dueler d) { 
-		System.out.print(this.name + " used " + attackName + "! \n" + d.attackedByBrave(this)); 
+		System.out.println(this.name + " used " + attackName + "! \n" + d.attackedByBrave(this)); 
 			
 	}
 	

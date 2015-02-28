@@ -143,8 +143,7 @@ abstract class Dueler extends Card {
 		
 	}
 	
-	public String heal(int HP) {
-		int heal = HP;
+	public String heal(int heal) {
 		int room = this.maxHP - this.currentHP;
 		if (room < heal) {
 			heal = room;
