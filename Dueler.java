@@ -177,7 +177,7 @@ abstract class Dueler extends Card {
 		return heal(10);
 	}
 	
-	public void Pass() { 
+	public void pass() { 
 		
 	}
 	
