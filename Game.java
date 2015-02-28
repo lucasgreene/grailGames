@@ -43,11 +43,22 @@ public class Game {
 	}
 	
 	public void printFieldHelp(Dueler[] field) {
-	
-		System.out.print("Battle Position: " + field[0].toString());
+		String arenaPlayer;
+		if (field[0] == null) {
+			arenaPlayer = "Empty";
+		} else {
+			arenaPlayer = field[0].toString();
+		}
+		System.out.println("Battle Position: " + arenaPlayer);
 		for (int i = 1; i < field.length; i++) {
-			System.out.print(Integer.toString(i) + "        " + 
-							    field[i].toString());
+			String out;
+			if (field[i] != null) {
+				out = (Integer.toString(i) + "        " + 
+					    field[i].toString());
+			} else {
+				out = (Integer.toString(i) + "        Empty");
+			}
+			System.out.println(out);
 		}
 	}
 	public void printField() {
@@ -222,12 +233,6 @@ public class Game {
 			Player p1 = new Player(n1, d1, null);
 			Player p2 = new Player(n2, d2, null);
 			Game game = new Game(p1,p2);
-			Player test = game.p1;
-			Game testG = test.game;
-			Card testC = new CcRowan(test, 50);
-			System.out.println(testC.toString());
-			String s = testC.game.iStream.readLine();
-			System.out.print(s);
 		    game.startGame();
 
 	    } catch (IOException e) {
