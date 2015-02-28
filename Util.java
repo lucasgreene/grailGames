@@ -5,9 +5,6 @@ import java.io.IOException;
 
 class Util {
 	
-	static String errorMessage = "Please input one of: print hand;" +
-			" print field; switch #; play #; attack; pass;" ;
-	
 	public static Card parse(String cardName) throws Exception{
 		Card card = null;
 
@@ -56,6 +53,8 @@ class Util {
 	
 	public static void turnInput(Player p, BufferedReader iStream) throws IOException {
 		
+		String errorMessage = "Please input one of: print hand;" +
+				" print field; switch #; play #; attack; pass;" ;
 		boolean turnOver = false;
 		while (!turnOver) {
 			String s = iStream.readLine();
@@ -108,9 +107,11 @@ class Util {
 	}
 	
 	public static int playInput(BufferedReader iStream) throws IOException {
-		
-		boolean correctInput = false;
-		while (!correctInput) {
+		String playMessage = "Select a Dueler:\n" + 
+							"0 for the battling Duelers, 1-6 for the bench";
+		String errorMessage = "Invalid input";
+		System.out.print(playMessage);
+		while (true) {
 			String s = iStream.readLine();
 			try {
 				int pos = Integer.parseInt(s);
@@ -118,12 +119,13 @@ class Util {
 					return pos;
 				} else {
 					System.out.println(errorMessage);
+					System.out.println(playMessage);
 				}
 			} catch (NumberFormatException e) {
 				System.out.println(errorMessage);
+				System.out.println(playMessage);
 			}
 	    }
-		throw new IOException();
 	
 	}
 }
