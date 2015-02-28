@@ -34,10 +34,8 @@ public class Player {
 	public void turn(BufferedReader iStream) throws IOException {
 		System.out.println(name + "'s turn");
 		draw();
-		boolean turnOver = false;
-		while (!turnOver) {
-			turnOver = Util.parseInput( this, iStream);
-		}
+        Util.turnInput(this, iStream);
+
 				
 	}
 	
@@ -64,8 +62,9 @@ public class Player {
 		
 	}
 	
-	public void play(int pos) {
-		
+	public void play(int pos, BufferedReader iStream) throws IOException {
+		int test = Util.playInput(iStream);	
+		System.out.print(Integer.toString(test));
 	}
 	
 	public void switchDuelers(int pos) {
