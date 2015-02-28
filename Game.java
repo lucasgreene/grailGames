@@ -18,6 +18,8 @@ public class Game {
 	public Game(Player player1, Player player2) {
 		this.p1 = player1;
 		this.p2 = player2;
+		this.p1.game = this;
+		this.p2.game = this;
 		
 	}
 	
@@ -77,8 +79,8 @@ public class Game {
 			String n2 = "Tim";
 			String d1 = "src/grailgames/DeckPreExtension.txt";
 			String d2 = d1;
-			Player p1 = new Player(n1, d1);
-			Player p2 = new Player(n2, d2);
+			Player p1 = new Player(n1, d1, null);
+			Player p2 = new Player(n2, d2, null);
 			Game game = new Game(p1,p2);
 			game.startGame();
 

@@ -8,12 +8,14 @@ public class Player {
 	
 	String name;
 	String[] deck;
+	Game game;
 	private int deckIndex = 0;
 	LinkedList<Card> hand = new LinkedList<Card>();
 	
-	public Player(String name, String deckFileName) throws IOException {
+	public Player(String name, String deckFileName, Game game) throws IOException {
 		this.name = name;
 		this.deck = GrailIO.getDeck(deckFileName);	
+		this.game = game;
 
 		
 	}
@@ -51,6 +53,7 @@ public class Player {
 		
 	public void attack() {
 		
+		
 	}
 	
 	public void pass() {
@@ -63,8 +66,8 @@ public class Player {
 	}
 	
 	public void play(int pos, BufferedReader iStream) throws IOException {
-		int test = Util.playInput(iStream);	
-		System.out.print(Integer.toString(test));
+		Card toPlay = this.hand.remove(pos-1);
+		toPlay.play();
 	}
 	
 	public void switchDuelers(int pos) {
