@@ -31,7 +31,7 @@ abstract class Brave extends Dueler {
 			return this.name + " has been exiled from castle camelot!";
 		}
 		
-		return "It's not very effective ... /n" + this.name + " took " + damage + " damage.";
+		return "It's not very effective ... \n" + this.name + " took " + damage + " damage.";
 	}
 	
 	@Override

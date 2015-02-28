@@ -74,8 +74,17 @@ class KnightRobin extends Cowardly{
 		
 	}
 	
+	@Override
 	public void pass() {
 		this.arena = this.arena + 1;
+	}
+	
+	@Override
+	public void attack(Dueler d) { 
+		this.arena = this.arena + 1;
+		System.out.println(this.name + " used " + attackName + "!");
+		System.out.println(d.attackedByCowardly(this));
+		
 	}
 
 }
