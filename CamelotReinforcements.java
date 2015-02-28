@@ -1,6 +1,5 @@
 package grailgames;
 
-import java.io.BufferedReader;
 
 class CamelotReinforcements extends Training {
 	
@@ -9,7 +8,7 @@ class CamelotReinforcements extends Training {
 	}
 	
 	@Override
-	void play (Game g, Player p, BufferedReader iStream) { 
+	void play() { 
 		p.draw();
 		p.draw();
 		p.draw();

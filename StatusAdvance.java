@@ -11,4 +11,13 @@ class StatusAdvance extends Training {
 			return "This dueler is not yet experienced enough to advance.";
 		}
 	}
+		
+	@Override
+	void play() {
+		System.out.println(effect(getFromHome(util.PlayInput(p.iStream)));
+			
+	}
+		
+		
+
 }
