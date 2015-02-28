@@ -9,8 +9,8 @@ public class Game {
 	Player p1;
 	Player p2;
 	private int turn = 1;
-	private Card[] homeField = new Card[]{null,null,null,null,null,null,null};
-	private Card[] awayField = new Card[]{null,null,null,null,null,null,null};
+	private Dueler[] homeField = new Dueler[]{null,null,null,null,null,null,null};
+	private Dueler[] awayField = new Dueler[]{null,null,null,null,null,null,null};
 	private boolean gameOver = false;
 	BufferedReader iStream;
 	
@@ -25,16 +25,17 @@ public class Game {
 	
 	private void nextTurn() {
 		this.turn *= -1;
-		Card[] temp = homeField;
+		Dueler[] temp = homeField;
 		homeField = awayField;
 		awayField = temp;
 	}
 	
-	public int getFromHome(int i) {
-		return 0;
+	public Dueler getFromHome(int i) {
+		Dueler toReturn = homeField[i];
+		return toReturn;
 	}
 	
-	public void printFieldHelp(Card[] field) {
+	public void printFieldHelp(Dueler[] field) {
 	
 		System.out.print("Battle Position: " + field[0].toString());
 		for (int i = 1; i < field.length; i++) {
@@ -60,14 +61,35 @@ public class Game {
 		
 	}
 	
-	public void place(Card dueler) {
+	public void place(Dueler dueler) {
 		for (int i = 0; i < homeField.length; i++) {
 			if (homeField[i] == null) {
 				homeField[i] = dueler;
+				dueler.position = i;
 				break;  
 			}
 		}
 			
+	}
+	
+	public void replace(Card dueler, int i) {
+		
+	}
+	
+	public void galahadSpecial() {
+		
+	}
+	
+	public void awaySwitch(int i) {
+		
+	}
+	
+	private void incrementXP() {
+		
+	}
+	
+	public void banish() {
+		
 	}
 	
 	public void startGame() throws IOException, Exception {
@@ -83,11 +105,13 @@ public class Game {
 			if (gameOver) {
 				break;
 			}
+			incrementXP();
 			nextTurn();
 			p2.turn();
 			if (gameOver) {
 				break;
 			}
+			incrementXP();
 			nextTurn();
 			gameOver = true;
 		}
