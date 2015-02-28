@@ -4,6 +4,7 @@ package grailgames;
 abstract class Card {
 	String name;
 	Player p;
+	Game game = p.game;
 	
 	/**
 	 * Constructs a card
