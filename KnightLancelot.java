@@ -12,16 +12,12 @@ class KnightLancelot extends Brave {
 	}
 	
 	@Override 
-	public String attack(Dueler d) { 
+	public void attack(Dueler d) { 
 		String toReturn = this.name + " used " + attackName + "! /n" + d.attackedByBrave(this);
 		this.AP = this.AP + 5;
-		return toReturn; 
+		System.out.println(toReturn); 
 	}
 	
-	@Override 
-	public String evolve() {
-		return null;
-	}
 	
 	
 	

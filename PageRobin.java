@@ -12,7 +12,11 @@ class PageRobin extends Cowardly{
 	
 	@Override 
 	public String evolve() {
-		return null;
+		Dueler levelUp = new SquireRobin(this.currentHP, this.p);
+		levelUp.currentHP = levelUp.maxHP - (this.maxHP- this.currentHP); 
+		game.replace(levelUp, this.position);
+		return this.name + " has evolved to " + levelUp.name + " !";
+		
 	}
 	
 }

@@ -130,10 +130,7 @@ abstract class Dueler extends Card {
 	 *@return a string indicating the attack that this dueler used
 	 *
 	 */
-	public String attack(Dueler d) {
-		d.currentHP = d.currentHP - this.AP;
-		return this.name + " used " + this.attackName +"!";
-	}
+	abstract void attack(Dueler d);
 	
 	/**
 	 * Evolves a dueler or does not if it cannot be advanced

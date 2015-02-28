@@ -48,8 +48,8 @@ abstract class Cowardly extends Dueler {
 	}
 	
 	@Override
-	public String attack(Dueler d) { 
-		return this.name + " used " + attackName + "! /n" + d.attackedByCowardly(this); 
+	public void attack(Dueler d) { 
+		System.out.println (this.name + " used " + attackName + "! /n" + d.attackedByCowardly(this)); 
 		
 	}
 	

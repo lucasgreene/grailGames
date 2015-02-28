@@ -46,9 +46,8 @@ abstract class Pure extends Dueler{
 	}
 	
 	@Override
-	public String attack(Dueler d) { 
-		d.attackedByPure(this);
-		return this.name + " used " + attackName + "! /n" + d.attackedByPure(this); 
+	public void attack(Dueler d) { 
+		System.out.println(this.name + " used " + attackName + "! /n" + d.attackedByPure(this)); 
 		
 	}
 	@Override 
