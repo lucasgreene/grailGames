@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * @author LUke
  *
  */
-public class Game implements Communicate{
+public class Game implements Communicate {
 
 	Player p1;
 	Player p2;
@@ -38,15 +38,14 @@ public class Game implements Communicate{
 		this.p2.game = this;
 
 	}
-	
-	/** 
+
+	/**
 	 * returns the BufferedReader being used by the Game
 	 */
 	public BufferedReader getStream() {
 		return this.iStream;
 	}
-	
-	
+
 	/**
 	 * Changes the state of the game to the next turn
 	 */
@@ -258,11 +257,11 @@ public class Game implements Communicate{
 	public void banish() {
 		awayField[0] = null;
 	}
-	
+
 	public void suicide() {
 		homeField[0] = null;
 	}
-	
+
 	/**
 	 * Starts the game by drawing 6 cards for each player, and then continues to
 	 * cycle between p1 turn and p2 turn until gameOver = true
