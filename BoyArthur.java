@@ -1,14 +1,18 @@
 package grailgames;
 
-class BoyArthur extends Royal implements DuelerMoves{
+class BoyArthur extends Royal {
 	
+	/**
+	 * Constructs a BoyArthur 
+	 *
+	 */
 	BoyArthur() {
-		super("Boy Arthur",80,80,0,"Royal Charm", 20);
+		super("Boy Arthur",80,80,0,"Royal Charm", 20,0);
 	}
 	
-	
-	public void evolve() {
-		// evolve to Prince Arthur
+	@Override 
+	public String evolve() {
+		return null;
 	}
 	
 	

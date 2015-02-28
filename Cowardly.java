@@ -3,8 +3,19 @@ package grailgames;
 
 abstract class Cowardly extends Dueler {
 	
-	Cowardly(String name, int maxHP, int currentHP, int XP, String attackName, int AP) {
-		super(name,maxHP,currentHP,XP,attackName, AP);
+	/**
+	 * Constructs a new cowardly dueler 
+	 *
+	 *@param name - name of the cowardly dueler
+	 *@param maxHP - the maximum hit points of the cowardly dueler 
+	 *@param currentHP - the current hit points of the cowardly dueler
+	 *@param XP - the amount of experience points
+	 *@param attackName - the name of the cowardly dueler's attack 
+	 *@param AP - the amount of attack points of the cowardly dueler's attack
+	 *
+	 */
+	Cowardly(String name, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
+		super(name,maxHP,currentHP,XP,attackName, AP, arena);
 	}
 	
 	@Override
@@ -25,25 +36,21 @@ abstract class Cowardly extends Dueler {
 		return this.name + " took " + damage + " damage.";
 	}
 	
-	
+	@Override
 	public String attack(Dueler d) { 
-		d.attackedByCowardly(this);
-		return this.name + " used " + attackName + "!"; 
+		return this.name + " used " + attackName + "! /n" + d.attackedByCowardly(this); 
 		
 	}
 	
-	public String usePotion(Training t) {
-		int heal = 0; 
-		if (t.name.equals("Cowardly Heal")) {
-			heal = 30;
-		} else {
-			heal = 10;
-		}
-		if ((this.currentHP + heal) > this.maxHP) { 
-			heal = this.maxHP - this.currentHP;
-		}
-		this.currentHP = this.currentHP + heal;
-		return this.name + " gained " + heal + " HP!" ;
+	@Override 
+	public String drinkCowardly() {
+		int heal = 30;
+		int room = this.maxHP - this.currentHP;
+		if (room < heal) {
+			heal = room;
+		} 
+		this.currentHP = heal + this.currentHP;
+		return this.name + " gained " + heal + "HP!";
 	}
 
 }

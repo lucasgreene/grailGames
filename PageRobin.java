@@ -1,13 +1,18 @@
 package grailgames;
 
-class PageRobin extends Cowardly implements DuelerMoves{
+class PageRobin extends Cowardly{
 	
+	/**
+	 * Constructs a PageRobin
+	 *
+	 */
 	PageRobin() {
-		super("Page Robin",60,60,0,"Squeal",20);
+		super("Page Robin",60,60,0,"Squeal",20,0);
 	}
 	
-	public void evolve() {
-		// evolve to Squire Robin
+	@Override 
+	public String evolve() {
+		return null;
 	}
 	
 }

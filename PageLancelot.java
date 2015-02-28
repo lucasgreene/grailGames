@@ -1,16 +1,19 @@
 package grailgames;
 
-class PageLancelot extends Brave implements DuelerMoves{
+class PageLancelot extends Brave {
 	
+	/**
+	 * Constructs a PageLancelot
+	 *
+	 */
 	PageLancelot() {
-		super("Page Lancelot",60,60,0,"Punch of Fury:", 20);
+		super("Page Lancelot",60,60,0,"Punch of Fury:", 20,0);
 	}
 	
-	
-	public void evolve() {
-		// evolve to Squire Lancelot
+	@Override 
+	public String evolve() {
+		return null;
 	}
-	
 
 	
 }

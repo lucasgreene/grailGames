@@ -4,7 +4,11 @@ class StatusAdvance extends Training {
 	StatusAdvance() {
 		super("Status Advance");
 	}
-	void effect(Dueler d) {
-		//do something
+	String effect(Dueler d) {
+		if (d.XP >= 3) {
+			return d.evolve();
+		} else {
+			return "This dueler is not yet experienced enough to advance.";
+		}
 	}
 }

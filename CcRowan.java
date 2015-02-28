@@ -1,14 +1,19 @@
 package grailgames;
 
-class CcRowan extends Pure implements DuelerMoves{
+class CcRowan extends Pure {
 	
+	/**
+	 * Constructs a CcRowan
+	 *
+	 *@param currentHP - the current hit points of this CcRowan
+	 */
 	CcRowan(int currentHP) {
-		super("CC Rowan",100,currentHP,0,"Rowan's Rampage", 40);
+		super("CC Rowan",100,currentHP,0,"Rowan's Rampage", 40,0);
 	}
 	
-	
-	public void evolve() {
-		// do nothing cannot evolve
+	@Override 
+	public String evolve() {
+		return null;
 	}
 	
 }

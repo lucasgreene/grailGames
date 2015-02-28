@@ -1,13 +1,19 @@
 package grailgames;
 
-class KingArthur extends Royal implements DuelerMoves{
+class KingArthur extends Royal {
 	
+	/**
+	 * Constructs a KingArthur 
+	 *
+	 *@param currentHP - the current hit points of this KingArthur
+	 */
 	KingArthur(int currentHP) {
-		super("King Arthur",160,currentHP,0,"Excalibur",50);
+		super("King Arthur",160,currentHP,0,"Excalibur",50, 0);
 	}
 	
-	public void evolve() {
-		// evolve to nothing
+	@Override 
+	public String evolve() {
+		return null;
 	}
 	
 	

@@ -2,8 +2,19 @@ package grailgames;
 
 abstract class Royal extends Dueler{
 	
-	Royal(String name, int maxHP, int currentHP, int XP, String attackName, int AP) {
-		super(name,maxHP,currentHP,XP, attackName, AP);
+	/**
+	 * Constructs a new royal dueler 
+	 *
+	 *@param name - name of the royal dueler
+	 *@param maxHP - the maximum hit points of the royal dueler 
+	 *@param currentHP - the current hit points of the royal dueler
+	 *@param XP - the amount of experience points
+	 *@param attackName - the name of the royal dueler's attack 
+	 *@param AP - the amount of attack points of the royal dueler's attack
+	 *
+	 */
+	Royal(String name, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
+		super(name,maxHP,currentHP,XP, attackName, AP, arena);
 	}
 	
 	@Override
@@ -24,10 +35,21 @@ abstract class Royal extends Dueler{
 		return this.name + " took " + damage + " damage.";
 	}
 	
+	@Override
 	public String attack(Dueler d) { 
-		d.attackedByRoyal(this);
-		return this.name + " used " + attackName + "!"; 
+		return this.name + " used " + attackName + "! /n" + d.attackedByRoyal(this); 
 		
+	}
+	
+	@Override 
+	public String drinkRoyal() {
+		int heal = 30;
+		int room = this.maxHP - this.currentHP;
+		if (room < heal) {
+			heal = room;
+		} 
+		this.currentHP = heal + this.currentHP;
+		return this.name + " gained " + heal + "HP!";
 	}
 }
 

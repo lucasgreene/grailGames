@@ -1,14 +1,20 @@
 package grailgames;
 
-class PeasantConcorde extends Brave implements DuelerMoves{
+class PeasantConcorde extends Brave{
 	
+	/**
+	 * Constructs a PeasantConcorde
+	 *
+	 *@param currentHP - the current hit points of this Peasant Concorde
+	 */
 	PeasantConcorde() {
-		super("Peasant Concorde",40,40,0,"Brave Bite", 30);
+		super("Peasant Concorde",40,40,0,"Brave Bite", 30,0);
 	}
 	
 	
-	public void evolve() {
-		// evolve to cc concorde
+	@Override 
+	public String evolve() {
+		return null;
 	}
 	
 

@@ -1,14 +1,19 @@
 package grailgames;
 
-class CcPatsy extends Royal implements DuelerMoves{
+class CcPatsy extends Royal {
 	
+	/**
+	 * Constructs a CcPatsy
+	 *
+	 *@param currentHP - the current hit points of this dueler 
+	 */
 	CcPatsy(int currentHP) {
-		super("CC Patsy",100,currentHP,0,"Coconut Chuck", 50);
+		super("CC Patsy",100,currentHP,0,"Coconut Chuck", 50,0);
 	}
 	
 	
-	public void evolve() {
-		// evolve to nothing
+	public String evolve() {
+		return null;
 	}
 
 	

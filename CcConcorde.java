@@ -1,13 +1,18 @@
 package grailgames;
 
-class CcConcorde extends Brave implements DuelerMoves{
+class CcConcorde extends Brave {
 	
+	/**
+	 * Constructs a CcConcorde
+	 *
+	 *@param currentHP - the current hit points of this dueler 
+	 */
 	CcConcorde(int currentHP) {
-		super("CC Concorde",70,currentHP,0,"Concorde's Conquer", 30);
+		super("CC Concorde",70,currentHP,0,"Concorde's Conquer", 30,0);
 	}
 	
-	public void evolve() {
-		// evolve to nothing
+	public String evolve() {
+		return null;
 	}
 
 	

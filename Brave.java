@@ -2,8 +2,19 @@ package grailgames;
 
 abstract class Brave extends Dueler {
 	
-	Brave(String name, int maxHP, int currentHP, int XP, String attackName, int AP) {
-		super(name,maxHP,currentHP,XP,attackName, AP);
+	/**
+	 * Constructs a new brave dueler
+	 *
+	 *@param name - name of the brave dueler
+	 *@param maxHP - the maximum hit points of the brave dueler 
+	 *@param currentHP - the current hit points of the brave dueler
+	 *@param XP - the amount of experience points
+	 *@param attackName - the name of the brave dueler's attack 
+	 *@param AP - the amount of attack points of the brave dueler's attack
+	 *
+	 */
+	Brave(String name, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
+		super(name,maxHP,currentHP,XP,attackName, AP, arena);
 	}
 	
 	
@@ -25,16 +36,22 @@ abstract class Brave extends Dueler {
 		return this.name + " took " + damage + " damage.";
 	}
 	
+	@Override 
 	public String attack(Dueler d) { 
-		d.attackedByBrave(this);
-		return this.name + " used " + attackName + "!"; 
+		return this.name + " used " + attackName + "! /n" + d.attackedByBrave(this); 
+		
 		
 	}
 	
-
-	
-	
-
-
+	@Override 
+	public String drinkBrave() {
+		int heal = 30;
+		int room = this.maxHP - this.currentHP;
+		if (room < heal) {
+			heal = room;
+		} 
+		this.currentHP = heal + this.currentHP;
+		return this.name + " gained " + heal + "HP!";
+	}
 }
 
