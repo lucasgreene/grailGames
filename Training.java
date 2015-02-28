@@ -6,6 +6,5 @@ abstract class Training extends Card {
 		super(name, p);
 	}
 	
-	// util.playInput()
 
 }

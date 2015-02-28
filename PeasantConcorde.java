@@ -14,7 +14,10 @@ class PeasantConcorde extends Brave{
 	
 	@Override 
 	public String evolve() {
-		return null;
+		Dueler levelUp = new CcConcorde(this.p, this.currentHP);
+		levelUp.currentHP = levelUp.maxHP - (this.maxHP- this.currentHP); 
+		game.replace(levelUp, this.position);
+		
 	}
 	
 

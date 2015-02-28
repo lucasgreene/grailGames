@@ -24,6 +24,7 @@ abstract class Pure extends Dueler{
 			damage = d.AP -20;
 			this.currentHP = this.currentHP - damage; 
 		} 
+		
 		if (this.currentHP <= 0) {
 			game.banish();
 			return this.name + " has been exiled from castle camelot!";
@@ -52,7 +53,7 @@ abstract class Pure extends Dueler{
 	}
 	@Override 
 	public String drinkPure() {
-		return heal(10);
+		return heal(30);
 	}
 
 }
