@@ -22,11 +22,11 @@ class Util {
 			card = new PeasantRowan(p);
 		} else if (cardName.equals("Anthrax Asylum")) {
 			card = new AnthraxAsylum(p);
-		} else if (cardName.equals("Cowardly Heal")) {
+		} else if (cardName.equals("Cowardly Health")) {
 			card = new CowardlyHeal(p);
-		} else if (cardName.equals("Pure Heal")) {
+		} else if (cardName.equals("Pure Health")) {
 			card = new PureHeal(p);
-		} else if (cardName.equals("Brave Heal")) {
+		} else if (cardName.equals("Brave Health")) {
 			card = new BraveHeal(p);
 		} else if (cardName.equals("Jousting Practice")) {
 			card = new JoustingPractice(p);
@@ -40,7 +40,7 @@ class Util {
 			card = new PeasantPatsy(p);
 		} else if (cardName.equals("Bridge of Death")) {
 			card = new BridgeDeath(p);
-		} else if (cardName.equals("Royal Heal")) {
+		} else if (cardName.equals("Royal Health")) {
 			card = new RoyalHeal(p);
 		} else {
 			throw new Exception("Can't read card deck");

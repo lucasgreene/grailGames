@@ -1,16 +1,21 @@
 package grailgames;
 
+import java.io.IOException;
+
+
 public class BridgeDeath extends Training{
 	BridgeDeath(Player p){
 		super("Bridge of Death", p);
 	}
 	
-	void effect(Dueler d) {
-		//do something
+	void effect(int i) {
+		game.awaySwitch(i);
+		
+		
 	}
 	
-	public void play() { 
-		System.out.println(effect((this.game.getFromHome(Util.playInput(game.iStream)))));
+	public void play() throws IOException{ 
+		effect(Util.playInput(game.iStream));
 	}
 	
 
