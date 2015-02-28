@@ -25,7 +25,7 @@ abstract class Brave extends Dueler {
 			damage = d.AP -20;
 			this.currentHP = this.currentHP - damage; 
 		} 
-		return this.name + " took " + damage + " damage.";
+		return "It's not very effective ... /n" + this.name + " took " + damage + " damage.";
 	}
 	
 	@Override
@@ -33,7 +33,7 @@ abstract class Brave extends Dueler {
 		int damage = d.AP + 20;
 		this.currentHP = this.currentHP - damage; 
 
-		return this.name + " took " + damage + " damage.";
+		return "It's super effective! /n" + this.name + " took " + damage + " damage.";
 	}
 	
 	@Override 
@@ -45,13 +45,7 @@ abstract class Brave extends Dueler {
 	
 	@Override 
 	public String drinkBrave() {
-		int heal = 30;
-		int room = this.maxHP - this.currentHP;
-		if (room < heal) {
-			heal = room;
-		} 
-		this.currentHP = heal + this.currentHP;
-		return this.name + " gained " + heal + "HP!";
+		return heal(30);
 	}
 }
 

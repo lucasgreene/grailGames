@@ -1,5 +1,7 @@
 package grailgames;
 
+import java.io.IOException;
+
 
 abstract class Card {
 	String name;
@@ -16,7 +18,7 @@ abstract class Card {
 		this.p = p;
 	}	
 	
-	abstract void play (); 
+	abstract void play () throws IOException; 
 	
 
 }

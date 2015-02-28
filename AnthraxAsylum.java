@@ -1,5 +1,7 @@
 package grailgames;
 
+import java.io.IOException;
+
 class AnthraxAsylum extends Training {
 	AnthraxAsylum(Player p) {
 		super("Anthrax Asylum", p);
@@ -12,8 +14,9 @@ class AnthraxAsylum extends Training {
 	}
 	
 	@Override 
-	public void play() { 
-		System.out.println(effect((getFromHome(Util.playInput(p.iStream)))));
+	public void play() throws IOException { 
+		System.out.println(p.name + " used " + this.name);
+		System.out.println(effect((this.game.getFromHome(Util.playInput(p.iStream)))));
 	}
 	
 

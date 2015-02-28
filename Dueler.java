@@ -1,5 +1,7 @@
 package grailgames;
 
+import java.io.IOException;
+
 abstract class Dueler extends Card {
 	int maxHP;
 	int currentHP;
@@ -124,6 +126,17 @@ abstract class Dueler extends Card {
 		
 	}
 	
+	public String heal(int HP) {
+		int heal = HP;
+		int room = this.maxHP - this.currentHP;
+		if (room < heal) {
+			heal = room;
+		} 
+		this.currentHP = heal + this.currentHP;
+		return this.name + " recovered " + heal + "HP!";
+		
+	}
+	
 	/**
 	 * Increases the HP of this player
 	 * 
@@ -131,13 +144,7 @@ abstract class Dueler extends Card {
 	 *
 	 */
 	public String drinkPure() {
-		int heal = 10;
-		int room = this.maxHP - this.currentHP;
-		if (room < heal) {
-			heal = room;
-		} 
-		this.currentHP = heal + this.currentHP;
-		return this.name + " gained " + heal + "HP!";
+		return heal(10);
 	}
 	
 	/**
@@ -147,13 +154,7 @@ abstract class Dueler extends Card {
 	 *
 	 */
 	public String drinkBrave() {
-		int heal = 10;
-		int room = this.maxHP - this.currentHP;
-		if (room < heal) {
-			heal = room;
-		} 
-		this.currentHP = heal + this.currentHP;
-		return this.name + " gained " + heal + "HP!";
+		return heal(10);
 	}
 	
 	/**
@@ -163,13 +164,7 @@ abstract class Dueler extends Card {
 	 *
 	 */
 	public String drinkRoyal() {
-		int heal = 10;
-		int room = this.maxHP - this.currentHP;
-		if (room < heal) {
-			heal = room;
-		} 
-		this.currentHP = heal + this.currentHP;
-		return this.name + " gained " + heal + "HP!";
+		return heal(10);
 	}
 	
 	/**
@@ -179,20 +174,14 @@ abstract class Dueler extends Card {
 	 *
 	 */
 	public String drinkCowardly() {
-		int heal = 10;
-		int room = this.maxHP - this.currentHP;
-		if (room < heal) {
-			heal = room;
-		} 
-		this.currentHP = heal + this.currentHP;
-		return this.name + " gained " + heal + "HP!";
+		return heal(10);
 	}
 	
 	public void Pass() { 
 		
 	}
 	
-	public void play() { 
+	public void play() throws IOException{ 
 		this.p.game.place(this);
 		if (this.position == 0) {
 			System.out.println(this.name + " has been placed in the arena!");

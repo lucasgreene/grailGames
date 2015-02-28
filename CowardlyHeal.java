@@ -1,15 +1,18 @@
 package grailgames;
 
+import java.io.IOException;
+
 class CowardlyHeal extends HolyHealthPotion{
 	public CowardlyHeal(Player p) {
 		super("Cowardly Heal", p);
 	}
 	public String effect(Dueler d) { 
-		return d.name + " used " + this.name + "! /n" + d.drinkCowardly();
+		return d.drinkCowardly();
 	}
 	
-	public void play() { 
-		System.out.println(effect((getFromHome(Util.playInput(p.iStream)))));
+	public void play() throws IOException { 
+		System.out.println(p.name + " used " + this.name);
+		System.out.println(effect((this.game.getFromHome(Util.playInput(p.iStream)))));
 	}
 
 
