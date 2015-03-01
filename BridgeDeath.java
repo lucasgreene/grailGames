@@ -2,12 +2,18 @@ package grailgames;
 
 import java.io.IOException;
 
-
-public class BridgeDeath extends Training{
-	BridgeDeath(Player p){
+class BridgeDeath extends Training {
+	BridgeDeath(Player p) {
 		super("Bridge of Death", p);
 	}
-	
+
+	/**
+	 * Switches the opponents duelers in the away arena
+	 * 
+	 * @param i
+	 *            - the spot that the arena dueler will switch with
+	 *
+	 */
 	void effect(int i) {
 		if (i >= 1) {
 			game.bridgeOfdeath(i);
@@ -15,11 +21,11 @@ public class BridgeDeath extends Training{
 			System.out.print("No effect!");
 		}
 	}
-	
-	public void play() throws IOException{
+
+	@Override
+	void play() throws IOException {
 		System.out.println(p.name + " played Bride Of Death");
 		effect(Util.playInput(game.getStream()));
 	}
-	
 
 }

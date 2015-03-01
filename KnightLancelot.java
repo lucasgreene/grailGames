@@ -5,10 +5,13 @@ class KnightLancelot extends Brave {
 	/**
 	 * Constructs a KnightLancelot
 	 *
-	 *@param currentHP - the current hit points of this KnightLancelot
+	 * @param currentHP
+	 *            - the current hit points of this KnightLancelot
+	 * @param p
+	 *            - the player that the dueler belongs to
 	 */
 	KnightLancelot(int currentHP, Player p) {
-		super("Knight Lancelot",p,140,currentHP,0,"Mighty Joust", 50,0);
+		super("Knight Lancelot",p,140,currentHP,0,"Mighty Joust", 50);
 	}
 	
 	@Override 

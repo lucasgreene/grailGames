@@ -6,6 +6,7 @@ abstract class Royal extends Dueler{
 	 * Constructs a new royal dueler 
 	 *
 	 *@param name - name of the royal dueler
+	 *@param p - the player that the dueler belongs to 
 	 *@param maxHP - the maximum hit points of the royal dueler 
 	 *@param currentHP - the current hit points of the royal dueler
 	 *@param XP - the amount of experience points
@@ -13,8 +14,8 @@ abstract class Royal extends Dueler{
 	 *@param AP - the amount of attack points of the royal dueler's attack
 	 *
 	 */
-	Royal(String name, Player p, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
-		super(name, p,maxHP,currentHP,XP, attackName, AP, arena);
+	Royal(String name, Player p, int maxHP, int currentHP, int XP, String attackName, int AP) {
+		super(name, p,maxHP,currentHP,XP, attackName, AP);
 	}
 	
 	@Override

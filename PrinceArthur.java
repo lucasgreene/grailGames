@@ -1,23 +1,26 @@
 package grailgames;
 
 class PrinceArthur extends Royal {
-	
+
 	/**
 	 * Constructs a PrinceArthur
 	 *
-	 *@param currentHP - the current hit points of this PrinceArthur
+	 * @param currentHP
+	 *            - the current hit points of this PrinceArthur
+	 * @param p
+	 *            - the player that the dueler belongs to
 	 */
 	PrinceArthur(int currentHP, Player p) {
-		super("Prince Arthur",p,120,currentHP,0,"Trivia Tackle", 40,0);
+		super("Prince Arthur", p, 120, currentHP, 0, "Trivia Tackle", 40);
 	}
-	
-	@Override 
+
+	@Override
 	public String evolve() {
 		Dueler levelUp = new KingArthur(this.p, this.currentHP);
-		levelUp.currentHP = levelUp.maxHP - (this.maxHP- this.currentHP); 
+		levelUp.currentHP = levelUp.maxHP - (this.maxHP - this.currentHP);
 		game.replace(levelUp, this.position);
 		return this.name + " has evolved to " + levelUp.name + " !";
-		
+
 	}
 
 }

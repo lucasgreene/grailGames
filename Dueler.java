@@ -8,30 +8,27 @@ abstract class Dueler extends Card {
 	int XP;
 	int turn;
 	String attackName;
-	int AP;
-	int arena; 
+	int AP; 
 	int position;
 	
 	/**
 	 * Constructs a new dueler 
 	 *
 	 *@param name - name of the dueler
+	 *@param p - the name of the player the card belongs to
 	 *@param maxHP - the maximum hit points of the dueler 
 	 *@param currentHP - the current hit points of the dueler
 	 *@param XP - the amount of experience points
 	 *@param attackName - the name of the dueler's attack 
 	 *@param AP - the amount of attack points of the dueler's attack
-	 *@param arena - the amount of consecutive times spent in arena 
 	 */
-	
-	Dueler(String name, Player p, int maxHP, int currentHP, int XP, String attackName, int AP, int arena) {
+	Dueler(String name, Player p, int maxHP, int currentHP, int XP, String attackName, int AP) {
 		super(name, p);
 		this.maxHP = maxHP;
 		this.currentHP = currentHP;
 		this.XP = XP;
 		this.attackName = attackName;
 		this.AP = AP;
-		this.arena = arena;
 	}
 	
 	@Override 
@@ -49,7 +46,7 @@ abstract class Dueler extends Card {
 	 *@return a string indicating that this dueler took a certain amount of damage
 	 *
 	 */
-	public String attackedByCowardly(Dueler d) { 
+	String attackedByCowardly(Dueler d) { 
 		int damage = d.AP;
 		this.currentHP = this.currentHP - damage; 
 		
@@ -68,7 +65,7 @@ abstract class Dueler extends Card {
 	 *@return a string indicating that this dueler took a certain amount of damage
 	 *
 	 */
-	public String attackedByBrave(Dueler d) { 
+	String attackedByBrave(Dueler d) { 
 		int damage = d.AP;
 		this.currentHP = this.currentHP - damage; 
 		
@@ -89,7 +86,7 @@ abstract class Dueler extends Card {
 	 *@return a string indicating that this dueler took a certain amount of damage
 	 *
 	 */
-	public String attackedByPure(Dueler d) { 
+	String attackedByPure(Dueler d) { 
 		int damage = d.AP;
 		this.currentHP = this.currentHP - damage; 
 		
@@ -109,7 +106,7 @@ abstract class Dueler extends Card {
 	 *@return a string indicating that this dueler took a certain amount of damage
 	 *
 	 */
-	public String attackedByRoyal(Dueler d) { 
+	String attackedByRoyal(Dueler d) { 
 		int damage = d.AP;
 		this.currentHP = this.currentHP - damage; 
 		
@@ -126,8 +123,6 @@ abstract class Dueler extends Card {
 	 * Decreases the HP of a dueler that this dueler is attacking
 	 * 
 	 *@param d - the dueler that this dueler is attacking
-	 * 
-	 *@return a string indicating the attack that this dueler used
 	 *
 	 */
 	abstract void attack(Dueler d);
@@ -138,12 +133,12 @@ abstract class Dueler extends Card {
 	 *@return a string indicating whether or not the dueler was advanced
 	 *
 	 */
-	public String evolve() {
+	String evolve() {
 		return this.name + " cannot be advanced.";
 		
 	}
 	
-	public String heal(int heal) {
+	String heal(int heal) {
 		int room = this.maxHP - this.currentHP;
 		if (room < heal) {
 			heal = room;
@@ -159,7 +154,7 @@ abstract class Dueler extends Card {
 	 *@return a string indicating the amount of HP this dueler gained
 	 *
 	 */
-	public String drinkPure() {
+	String drinkPure() {
 		return heal(10);
 	}
 	
@@ -169,7 +164,7 @@ abstract class Dueler extends Card {
 	 *@return a string indicating the amount of HP this dueler gained
 	 *
 	 */
-	public String drinkBrave() {
+	String drinkBrave() {
 		return heal(10);
 	}
 	
@@ -179,7 +174,7 @@ abstract class Dueler extends Card {
 	 *@return a string indicating the amount of HP this dueler gained
 	 *
 	 */
-	public String drinkRoyal() {
+	String drinkRoyal() {
 		return heal(10);
 	}
 	
@@ -189,11 +184,14 @@ abstract class Dueler extends Card {
 	 *@return a string indicating the amount of HP this dueler gained
 	 *
 	 */
-	public String drinkCowardly() {
+	String drinkCowardly() {
 		return heal(10);
 	}
 	
-	public void pass() { 
+	/**
+	 * Called when a dueler passes their turn 
+	 */
+	void pass() { 
 		
 	}
 	
