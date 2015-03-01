@@ -7,10 +7,13 @@ class JoustingPractice extends Training {
 		super("Jousting Practice", p);
 	}
 	public String effect(Dueler d) {
-		return d.heal(30);
+		d.maxHP += 20;
+		System.out.println(d.name + " increased max HP by 20!");
+		return d.heal(20);
 	}
 	
 	void play() throws IOException {
+		System.out.println(p.name + " used JoustingPractice!");
 		System.out.println(effect(this.game.getFromHome(Util.playInput(game.getStream()))));
 		
 	}
