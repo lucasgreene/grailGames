@@ -179,16 +179,23 @@ public class Game implements Communicate {
 	 * 
 	 * @param dueler
 	 */
-	public void place(Dueler dueler) {
+	public boolean place(Dueler dueler) {
 		for (int i = 0; i < homeField.length; i++) {
 			if (homeField[i] == null) {
 				homeField[i] = dueler;
-				dueler.position = i;
-				break;
+				homeField[i].position = i;
+				if (i == 0) {
+					System.out.println(dueler.name + " was placed in the arena!");
+				} else {
+					System.out.println(dueler.name + " was placed on the bench!");
+				}
+				return true;	
+				}
 			}
-		}
-
+		return false;
 	}
+
+	
 
 	/**
 	 * Replaces the Dueler at position i with the input Dueler Called when a
@@ -199,8 +206,9 @@ public class Game implements Communicate {
 	 */
 	public void replace(Dueler dueler, int i) {
 		homeField[i] = dueler;
-		dueler.position = i;
-
+		if (dueler != null) {
+			dueler.position = i;
+		}
 	}
 
 	/**
