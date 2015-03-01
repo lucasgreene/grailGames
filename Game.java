@@ -49,7 +49,7 @@ public class Game implements Communicate {
 	/**
 	 * Changes the state of the game to the next turn
 	 */
-	private void nextTurn() {
+	public void nextTurn() {
 		this.turn *= -1;
 		Dueler[] temp = homeField;
 		homeField = awayField;

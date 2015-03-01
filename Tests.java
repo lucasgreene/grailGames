@@ -17,10 +17,13 @@ public class Tests {
 			System.out.println(p1.game == g);
 			System.out.println(p2.game == g);
 			// Create some Cards
-			Card anthrax = new AnthraxAsylum(p1);
-			Card boy = new BoyArthur(p2);
-			BraveHeal braveHeal = new BraveHeal(p1);
-			Card bridge = new BridgeDeath(p1);
+			BoyArthur boy = new BoyArthur(p1);
+			Dueler ccPatsy = new CcPatsy(10, p1);
+			// Test getFromHome references to homeField and dueler.play
+			boy.play();
+			ccPatsy.play();
+			System.out.println(g.getFromHome(0) == boy);
+			System.out.println(g.getFromHome(1) == ccPatsy);
 			// Test Camelot Reinforcements
 			Card camelot = new CamelotReinforcements(p2);
 			System.out.println(p2.hand.size() == 0);
@@ -31,25 +34,81 @@ public class Tests {
 			System.out.println(ccConcorde.currentHP == 30);
 			System.out.println(ccConcorde.AP == 30);
 			System.out.println(ccConcorde.XP == 0);
-			Dueler ccPatsy = new CcPatsy(10, p1);
 			Dueler ccRowan = new CcRowan(30, p1);
-			ccRowan.play();
-			// Check memory reference from dueler.play which should
-			// now reside in homeField[0]
-			System.out.print(g.getFromHome(0) == ccRowan);
 			RoyalHeal rHeal = new RoyalHeal(p2);
 			Dueler prince = new PrinceArthur(0, p1);
 			// Check that matching healing works
 			rHeal.effect(prince);
 			System.out.println(prince.currentHP == 30);
 			// Check to non-matching healing works
+			BraveHeal braveHeal = new BraveHeal(p1);
 			braveHeal.effect(prince);
 			System.out.println(prince.currentHP == 40);
-			Card jPractice = new JoustingPractice(p1);
+			// check anthrax full heal
+			AnthraxAsylum anthrax = new AnthraxAsylum(p1);
+			anthrax.effect(prince);
+			System.out.println(prince.currentHP == 120);
+			// Test jousting practice +20 HP
+			JoustingPractice jPractice = new JoustingPractice(p1);
+			jPractice.effect(prince);
+			System.out.println(prince.currentHP == 140);
+			System.out.println(prince.maxHP == 140);
+			// Test attack
 			ccRowan.attack(ccPatsy);
 			System.out.println(ccPatsy.currentHP == -10);
-
-		} catch (Exception e) {
+			// Test next turn
+			g.nextTurn();
+			prince.play(); // Should go to the attack position of new homeField
+						   // which is now p2's field
+			System.out.println(g.getFromHome(0) == prince);
+			SquireRobin sRobin = new SquireRobin(50, p2);
+			sRobin.play();
+			// Switch fields again
+			g.nextTurn();  // now prince is in the attack position of enemyField
+			// Test BridgeDeath
+			BridgeDeath bridge = new BridgeDeath(p1);
+			bridge.effect(1); // switches prince and sRobin
+			System.out.println(g.getFromAway(0) == sRobin);
+			System.out.println(g.getFromAway(1) == prince);
+			// Test Arthur special power
+			KingArthur king = new KingArthur(p1,100);
+			king.attack(prince);
+			System.out.println(king.currentHP == 40);
+			// Check that sRobin has been banished from enemy field
+			System.out.println(g.getFromAway(0) == null);
+			// Test robin special power
+			KnightRobin robin = new KnightRobin(100, p2, 0);
+			prince.attack(robin);
+			System.out.println(robin.currentHP == 100);
+			robin.arena = 3;
+			prince.attack(robin);
+			System.out.println(robin.currentHP == 60);
+			// Test Lancelot special power
+			KnightLancelot lance = new KnightLancelot(60,p1);
+			System.out.println(lance.AP == 50);
+			lance.attack(robin);
+			System.out.println(lance.AP == 55);
+			// Test Galahad special power
+			Dueler gal = new KnightGalahad(60, p2);
+			gal.play(); // on the bench
+			g.homeSwitch(2); // Test switch and places galahad in attack
+			System.out.println(ccPatsy.currentHP == -10);
+			gal.pass(); 
+			System.out.println(ccPatsy.currentHP == -5);
+			gal.attack(king);
+			System.out.println(ccPatsy.currentHP == 0);
+			// Test Status Advance
+			StatusAdvance up = new StatusAdvance(p2);
+			boy.XP = 5;
+			up.effect(boy); // Now we check if there is an instance of PrinceArthur
+							// where boy was in homeField
+			Dueler leveled = g.getFromHome(2);
+			System.out.println((leveled instanceof PrinceArthur));
+			
+			
+			
+		}
+		catch (Exception e) {
 			System.out.println(e.getMessage());
 
 		}
