@@ -7,9 +7,13 @@ class JoustingPractice extends Training {
 		super("Jousting Practice", p);
 	}
 	public String effect(Dueler d) {
-		d.maxHP += 20;
-		System.out.println(d.name + " increased max HP by 20!");
-		return d.heal(20);
+		if (d != null) {
+			d.maxHP += 20;
+			System.out.println(d.name + " increased max HP by 20!");
+			return d.heal(20);
+		} else {
+			return "No effect!";
+		}
 	}
 	
 	void play() throws IOException {

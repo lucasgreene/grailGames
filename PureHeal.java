@@ -24,9 +24,13 @@ class PureHeal extends Training {
 	 * @return a string indicating how much hp the dueler has gained
 	 */
 	String effect(Dueler d) {
-		return d.drinkPure();
+		if (d != null) {
+			return d.drinkPure();
+		} else {
+			return "No dueler in this position";
+		}
 	}
-
+		
 	@Override
 	void play() throws IOException {
 		System.out.println(p.name + " used " + this.name);

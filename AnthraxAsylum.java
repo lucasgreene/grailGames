@@ -20,9 +20,13 @@ class AnthraxAsylum extends Training {
 	 *            - the dueler that the card is effecting
 	 */
 	String effect(Dueler d) {
-		int gain = d.maxHP - d.currentHP;
-		d.currentHP = d.maxHP;
-		return d.name + " regains " + gain + " HP!";
+		if (d != null) {
+			int gain = d.maxHP - d.currentHP;
+			d.currentHP = d.maxHP;
+			return d.name + " regains " + gain + " HP!";
+		} else {
+			return "No dueler in this position";
+		}
 
 	}
 

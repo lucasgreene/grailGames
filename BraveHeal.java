@@ -24,9 +24,13 @@ class BraveHeal extends Training {
 	 * @return a string indicating how much hp the dueler has gained
 	 */
 	String effect(Dueler d) {
-		return d.drinkBrave();
+		if (d != null) {
+			return d.drinkBrave();
+		} else {
+			return "No dueler in this position";
+		}
 	}
-
+		
 	void play() throws IOException {
 		System.out.println(p.name + " used " + this.name);
 		System.out.println(effect((this.game.getFromHome(Util.playInput(game

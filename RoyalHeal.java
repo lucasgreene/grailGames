@@ -24,7 +24,11 @@ class RoyalHeal extends Training {
 	 * @return a string indicating how much hp the dueler has gained
 	 */
 	public String effect(Dueler d) {
-		return d.name + " used " + this.name + "! \n" + d.drinkRoyal();
+		if (d != null) {
+			return d.name + " used " + this.name + "! \n" + d.drinkRoyal();
+		} else { 
+			return "No dueler in this position";
+		}
 	}
 
 	void play() throws IOException {

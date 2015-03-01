@@ -24,7 +24,7 @@ class BridgeDeath extends Training {
 
 	@Override
 	void play() throws IOException {
-		System.out.println(p.name + " played Bride Of Death");
+		System.out.println(p.name + " played Bridge Of Death");
 		effect(Util.playInput(game.getStream()));
 	}
 

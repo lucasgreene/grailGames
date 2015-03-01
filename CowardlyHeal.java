@@ -24,7 +24,11 @@ class CowardlyHeal extends Training {
 	 * @return a string indicating how much hp the dueler has gained
 	 */
 	String effect(Dueler d) {
-		return d.drinkCowardly();
+		if (d != null) {
+			return d.drinkCowardly();
+	    } else {
+	    	return "No dueler in this position";
+	    }
 	}
 
 	@Override
