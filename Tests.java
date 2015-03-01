@@ -1,5 +1,11 @@
 package grailgames;
 
+/**
+ * Class for testing the game
+ * 
+ * @author LUke
+ *
+ */
 public class Tests {
 
 	public static void main(String[] args) {
@@ -59,19 +65,19 @@ public class Tests {
 			// Test next turn
 			g.nextTurn();
 			prince.play(); // Should go to the attack position of new homeField
-						   // which is now p2's field
+							// which is now p2's field
 			System.out.println(g.getFromHome(0) == prince);
 			SquireRobin sRobin = new SquireRobin(50, p2);
 			sRobin.play();
 			// Switch fields again
-			g.nextTurn();  // now prince is in the attack position of enemyField
+			g.nextTurn(); // now prince is in the attack position of enemyField
 			// Test BridgeDeath
 			BridgeDeath bridge = new BridgeDeath(p1);
 			bridge.effect(1); // switches prince and sRobin
 			System.out.println(g.getFromAway(0) == sRobin);
 			System.out.println(g.getFromAway(1) == prince);
 			// Test Arthur special power
-			KingArthur king = new KingArthur(p1,100);
+			KingArthur king = new KingArthur(p1, 100);
 			king.attack(prince);
 			System.out.println(king.currentHP == 40);
 			// Check that sRobin has been banished from enemy field
@@ -84,7 +90,7 @@ public class Tests {
 			prince.attack(robin);
 			System.out.println(robin.currentHP == 60);
 			// Test Lancelot special power
-			KnightLancelot lance = new KnightLancelot(60,p1);
+			KnightLancelot lance = new KnightLancelot(60, p1);
 			System.out.println(lance.AP == 50);
 			lance.attack(robin);
 			System.out.println(lance.AP == 55);
@@ -93,22 +99,20 @@ public class Tests {
 			gal.play(); // on the bench
 			g.homeSwitch(2); // Test switch and places galahad in attack
 			System.out.println(ccPatsy.currentHP == -10);
-			gal.pass(); 
+			gal.pass();
 			System.out.println(ccPatsy.currentHP == -5);
 			gal.attack(king);
 			System.out.println(ccPatsy.currentHP == 0);
 			// Test Status Advance
 			StatusAdvance up = new StatusAdvance(p2);
 			boy.XP = 5;
-			up.effect(boy); // Now we check if there is an instance of PrinceArthur
+			up.effect(boy); // Now we check if there is an instance of
+							// PrinceArthur
 							// where boy was in homeField
 			Dueler leveled = g.getFromHome(2);
 			System.out.println((leveled instanceof PrinceArthur));
-			
-			
-			
-		}
-		catch (Exception e) {
+
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 
 		}

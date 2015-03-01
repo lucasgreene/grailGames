@@ -15,7 +15,7 @@ class KnightGalahad extends Pure {
 	
 	@Override
 	public void attack(Dueler d) {
-		String toReturn = this.name + " used " + attackName + "! /n" + d.attackedByPure(this);
+		String toReturn = this.name + " used " + attackName + "! \n" + d.attackedByPure(this);
 		game.galahadSpecial();
 		System.out.println(toReturn); 
 	}

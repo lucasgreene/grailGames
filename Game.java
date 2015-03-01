@@ -185,17 +185,17 @@ public class Game implements Communicate {
 				homeField[i] = dueler;
 				homeField[i].position = i;
 				if (i == 0) {
-					System.out.println(dueler.name + " was placed in the arena!");
+					System.out.println(dueler.name
+							+ " was placed in the arena!");
 				} else {
-					System.out.println(dueler.name + " was placed on the bench!");
+					System.out.println(dueler.name
+							+ " was placed on the bench!");
 				}
-				return true;	
-				}
+				return true;
 			}
+		}
 		return false;
 	}
-
-	
 
 	/**
 	 * Replaces the Dueler at position i with the input Dueler Called when a
@@ -315,21 +315,10 @@ public class Game implements Communicate {
 
 	public static void main(String[] args) {
 
-		/*
-		 * try { Player p1 = new Player(args[0], args[1]); Player p2 = new
-		 * Player(args[1], args[2]); System.out.println(p1.name);
-		 * System.out.println(p2.name); System.out.println(p1.deck); } catch
-		 * (IOException e) { System.out.println(e.getMessage()); }
-		 */
-
+		
 		try {
-			String n1 = "Luke";
-			String n2 = "Tim";
-			String d1 = "src/grailgames/DeckPostExtension.txt";
-			String d2 = d1;
-
-			Player p1 = new Player(n1, d1, null);
-			Player p2 = new Player(n2, d2, null);
+			Player p1 = new Player(args[0], args[1], null);
+			Player p2 = new Player(args[2],args[1],  null);
 			Game game = new Game(p1, p2);
 			game.startGame();
 
@@ -338,5 +327,6 @@ public class Game implements Communicate {
 		} catch (Exception e) {
 			System.out.println(e.getMessage() + ": other exception");
 		}
+		
 	}
 }
